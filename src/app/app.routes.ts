@@ -7,6 +7,7 @@ import { privateGuard } from './security/guards/private.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ConfigurationComponent } from './pages/configuration/configuration.component';
 import {ServiceComponent} from "./pages/service/service.component";
+import {RegisterComponent} from "./pages/register/register.component";
 
 export const routes: Routes = [
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'service', component: ServiceComponent },
       { path: 'configuration', component: ConfigurationComponent },
+      { path: 'register/:hash', component: RegisterComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },

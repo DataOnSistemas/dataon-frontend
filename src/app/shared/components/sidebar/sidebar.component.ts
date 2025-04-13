@@ -36,6 +36,8 @@ import { TabsModule } from 'primeng/tabs';
 export class SidebarComponent implements OnInit {
 
   @Input() tabSuport: boolean = false;
+  @Input() currentTab: string = "dashboard";
+  @Input() currentMenu: any;
 
   tabs: { title: string; icon: string; route: string, fixed: boolean }[] = [];
 
@@ -43,13 +45,12 @@ export class SidebarComponent implements OnInit {
   menu = new MenuItens();
   isExpanded = false;
   menuItems: any;
-  currentMenu: any;
   showSidebar: boolean = true;
   showSidebarMobile: boolean = false;
   screenWidth: number = 0;
   isMobile: boolean = false;
   image: string | null = null;
-  currentTab: string = "";
+
 
 
   constructor(
@@ -58,7 +59,6 @@ export class SidebarComponent implements OnInit {
     private readonly translateService: TranslateService,
   ){
     this.menuItems = this.menu.menuItems;
-    this.currentMenu = this.menuItems[0];
   }
 
   ngOnInit(): void {
@@ -66,10 +66,7 @@ export class SidebarComponent implements OnInit {
     this.onVerifyMobile();
     this.onSetConfigurationMobile();
     //this.onLoadImage();
-    this.tabs = [
-      { title: this.translateService.translate('dashboard'), icon: "pi pi-chart-bar", route: 'dashboard', fixed: true },
-    ];
-    this.currentTab = this.translateService.translate('dashboard');
+    this.tabs.push(this.currentMenu);
   }
 
   toggleMenu(menu: any) {
@@ -169,6 +166,10 @@ export class SidebarComponent implements OnInit {
   onTabClose(menu: any){
     this.tabs = this.tabs.filter(tab => tab.title !== menu.title);
     this.currentTab = this.tabs[this.tabs.length - 1].route;
+  }
+
+  onTranslateMenu(name: string){
+    return this.translateService.translate(name);
   }
 
 

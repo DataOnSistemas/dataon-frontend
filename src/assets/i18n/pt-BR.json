@@ -1,4 +1,7 @@
 {
   "dashboard": "Dashboard",
-  "service": "Atendimento"
+  "service": "Atendimento",
+  "general": "Gerais",
+  "city": "Cidades",
+  "register": "Cadastros"
 }

@@ -9,4 +9,6 @@ import { SidebarComponent } from "../../shared/components/sidebar/sidebar.compon
 })
 export class HomeComponent {
 
+  currentMenu = { title: "service", icon: "pi pi-briefcase", route: 'service', fixed: true }
+
 }

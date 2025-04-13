@@ -12,7 +12,7 @@
             [routerLink]="item.route"
             [id]="item.name">
             <span class="indicator"></span>
-            <i [ngClass]="item.iconClass" pTooltip="{{ item.tooltip }}"></i>
+            <i [ngClass]="item.iconClass" pTooltip="{{ onTranslateMenu(item.tooltip) }}"></i>
           </li>
         </div>
         <div *ngIf="isExpanded" class="menu-expanded-submenu">
@@ -36,7 +36,7 @@
         @for(tab of tabs; track tab.route){
           <p-tab [value]="tab.route" [routerLink]="tab.route">
             <i [class]="tab.icon"></i>
-            <span>{{ tab.title }}</span>
+            <span>{{ onTranslateMenu(tab.title)}}</span>
             @if(!tab.fixed){
               <div (click)="onTabClose(tab)" class="tab-close">
                 x
