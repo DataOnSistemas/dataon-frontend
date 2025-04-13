@@ -1,6 +1,6 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import { SharedCommonModule } from '../../common/shared-common.module';
-import { RouterLink, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
@@ -57,6 +57,7 @@ export class SidebarComponent implements OnInit {
     private readonly imageService: ImageUploadService,
     private readonly themeService: ThemeService,
     private readonly translateService: TranslateService,
+    private readonly router: Router,
   ){
     this.menuItems = this.menu.menuItems;
   }

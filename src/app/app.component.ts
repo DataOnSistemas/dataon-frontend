@@ -37,6 +37,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.primeng.ripple.set(true);
+    this.onRegistrySubjectLoading();
   }
 
   onRegistrySubjectLoading(){

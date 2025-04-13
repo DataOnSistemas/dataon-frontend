@@ -1,3 +1,33 @@
 [
-
+  {
+    "route": "city",
+    "hash": "city",
+    "filters": [
+      {
+        "field": "name",
+        "type": "string"
+      },
+      {
+        "field": "ibge",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "name",
+        "header": "Nome",
+        "width": "60%"
+      },
+      {
+        "field": "ibge",
+        "header": "Ibge",
+        "width": "10%"
+      },
+      {
+        "field": "state.name",
+        "header": "UF",
+        "width": "10%"
+      }
+    ]
+  }
 ]

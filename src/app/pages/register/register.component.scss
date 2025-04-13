@@ -1,6 +1,7 @@
 .register{
     padding: 10px;
-    height: 100%;
+    width: 100%;
+    height: calc(100% - 50px);
     .btnsp{
         display: flex;
         justify-content: space-between;

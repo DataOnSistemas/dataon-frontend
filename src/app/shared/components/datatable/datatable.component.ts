@@ -45,7 +45,7 @@ export enum Action {
 })
 export class DatatableComponent {
 
-
+  selectedItem: any;
   sidebarVisible: boolean = false;
   @Input() config: DataTable = new DataTable();
 
@@ -102,6 +102,10 @@ export class DatatableComponent {
 
   onRefreshData(){
     this.onRefresh.emit(new RequestData());
+  }
+
+  onSelection(item: any){
+
   }
 
   onDeleteData(item: any, action: Action){

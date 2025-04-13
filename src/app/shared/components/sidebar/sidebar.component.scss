@@ -86,10 +86,10 @@ $active-indicator-color: #a78bfa;
 }
 
 .content{
-  width: calc($sidebar-width + 100%);
+  width: calc(100% - $sidebar-width);
+  height: 100%;
   margin-left: $sidebar-width;
   padding: 10px;
-  height: 100%;
   transition: margin-left 0.3s ease;
 }
 

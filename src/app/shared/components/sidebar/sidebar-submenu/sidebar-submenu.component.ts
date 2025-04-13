@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { SharedCommonModule } from '../../../common/shared-common.module';
 import {EnumCookie} from "../../../services/cookies/cookie.enum";
 import {CookiesService} from "../../../services/cookies/cookies.service";
+import {TranslateService} from "../../../services/translate/translate.service";
 
 
 @Component({
@@ -27,6 +28,7 @@ export class SidebarSubmenuComponent implements OnInit, OnChanges {
   constructor(
     private readonly router: Router,
     private readonly cookieService: CookiesService,
+    private readonly translateService: TranslateService
   ){}
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['menu']){
@@ -71,5 +73,9 @@ export class SidebarSubmenuComponent implements OnInit, OnChanges {
 
   onMenuSelected(menu: any){
     this.menuItemSelected.emit(menu);
+  }
+
+  onTranslateMenu(name: string){
+    return this.translateService.translate(name);
   }
 }

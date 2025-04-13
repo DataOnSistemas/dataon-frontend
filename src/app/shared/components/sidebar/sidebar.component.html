@@ -31,7 +31,7 @@
 </div>
 <div class="content" [class.menu-expanded]="isExpanded" (click)="closeMenu()">
   @if(tabSuport){
-    <p-tabs [value]="currentTab">
+    <p-tabs [value]="currentTab" [scrollable]="true">
       <p-tablist>
         @for(tab of tabs; track tab.route){
           <p-tab [value]="tab.route" [routerLink]="tab.route">

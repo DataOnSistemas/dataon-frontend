@@ -1,27 +1,65 @@
 <div class="datatable">
     <p-confirmDialog />
-    <div class="btnsp">
-        <button
-            pButton
-            pRipple
-            (click)="onRegisterData(null,2)"
-            label="Adicionar">
-        </button>
-        <button
-            pButton
-            pRipple
-            (click)="onShowFilters()"
-            icon="pi pi-filter">
-        </button>
+    <div class="actions-header">
+      <div class="group-buttons">
+        <p-button
+          (click)="onRegisterData(null,2)"
+          pRipple
+          severity="success"
+          [outlined]="true"
+          styleClass="p-button-text"
+          icon="pi pi-plus"/>
+        <p-button
+          (click)="onRegisterData(null,2)"
+          pRipple
+          severity="danger"
+          [outlined]="true"
+          styleClass="p-button-text"
+          icon="pi pi-minus"/>
+        <p-button
+          (click)="onShowFilters()"
+          pRipple
+          [outlined]="true"
+          styleClass="p-button-text"
+          icon="pi pi-filter"/>
+        <p-button
+          (click)="onRefreshData()"
+          pRipple
+          [outlined]="true"
+          styleClass="p-button-text"
+          icon="pi pi-refresh"/>
+        <p-button
+          (click)="onRefreshData()"
+          pRipple
+          [outlined]="true"
+          styleClass="p-button-text"
+          icon="pi pi-search"/>
+      </div>
+      <div class="group-paginator">
+        <p-paginator
+          (onPageChange)="pageChange($event)"
+          [first]="1"
+          [rows]="config.size"
+          [totalRecords]="config.totalRecords"
+          [showCurrentPageReport]="true"
+          [showPageLinks]="false"
+          [showJumpToPageDropdown]="false"
+          appendTo="body"
+          dropdownAppendTo="body"/>
+      </div>
     </div>
     <div class="table">
         <p-table
             [columns]="config.fields"
             [value]="config.values"
             [rows]="10"
+            selectionMode="single"
+            [(selection)]="selectedItem"
+            [metaKeySelection]="false"
             styleClass="p-datatable-sm"
             [dataKey]="'id'"
             [autoLayout]="true"
+            (onRowSelect)="onSelection($event)"
             (onPage)="pageChange($event)"
             [rowsPerPageOptions]="[10, 20, 50]"
             [tableStyle]="{ 'min-width': '50rem'}">
@@ -76,18 +114,6 @@
                       </div>
                     </td>
                 </tr>
-            </ng-template>
-            <ng-template pTemplate="summary">
-              <div class="summary">
-                <p-button type="button" (onClick)="onRefreshData()" icon="pi pi-refresh" styleClass="p-button-text" />
-                <p-paginator
-                  (onPageChange)="pageChange($event)"
-                  [rows]="config.size"
-                  appendTo="body"
-                  dropdownAppendTo="body"
-                  [totalRecords]="config.totalRecords"
-                  [rowsPerPageOptions]="[5,10, 20, 30]" />
-              </div>
             </ng-template>
         </p-table>
     </div>
