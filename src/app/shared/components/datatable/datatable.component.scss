@@ -1,0 +1,32 @@
+@import "../../styles/button.scss";
+.datatable{
+  width: 100%;
+  height: calc(80% - 20px);
+    .btnsp{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+  .table{
+    max-height: 70%;
+    overflow: auto;
+  }
+}
+.filter {
+    .btn-tx{
+        text-align: center;
+        width: 100%;
+    }
+}
+.summary{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.actions{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
