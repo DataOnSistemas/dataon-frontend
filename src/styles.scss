@@ -6,13 +6,20 @@ body{
   overflow-x:hidden;
   font-family: "Poppins", serif;
 }
-
+:host::ng-deep{
+  .p-inputtext{
+    background-color: rgba($color: #e9e6e6, $alpha: 0.1);
+    border: none;
+    padding: 5px;
+  }
+}
 
 html{
   font-size: 14px;
 }
 .buttons{
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: flex-end;
 }

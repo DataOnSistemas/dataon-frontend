@@ -3,5 +3,6 @@
   "service": "Atendimento",
   "general": "Gerais",
   "city": "Cidades",
+  "jobPosition": "Profissoes",
   "register": "Cadastros"
 }

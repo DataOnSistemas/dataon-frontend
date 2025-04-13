@@ -29,5 +29,22 @@
         "width": "10%"
       }
     ]
+  },
+  {
+    "route": "jobPosition",
+    "hash": "jobPosition",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
   }
 ]
