@@ -23,6 +23,13 @@
           styleClass="p-button-text"
           icon="pi pi-filter"/>
         <p-button
+          (click)="onShowFilters()"
+          pRipple
+          severity="info"
+          [outlined]="true"
+          styleClass="p-button-text"
+          icon="pi pi-print"/>
+        <p-button
           (click)="onRefreshData()"
           pRipple
           [outlined]="true"
