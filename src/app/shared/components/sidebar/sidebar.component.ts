@@ -167,6 +167,8 @@ export class SidebarComponent implements OnInit {
   onTabClose(menu: any){
     this.tabs = this.tabs.filter(tab => tab.title !== menu.title);
     this.currentTab = this.tabs[this.tabs.length - 1].route;
+    this.router.navigateByUrl(`home/${this.currentTab}`);
+    this.onDisableAndSetActiveLink();
   }
 
   onTranslateMenu(name: string){
