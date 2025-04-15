@@ -32,8 +32,7 @@ export function authInterceptor(originalRequest: HttpRequest<unknown>, next: Htt
               router.navigate(['/login']);
             }
 
-            return throwError(() => {
-            });
+            return throwError(() => error );
           })
     );
 }
