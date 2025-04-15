@@ -32,6 +32,7 @@ export class CityConfig {
     return {
       id: formGroup.get('id')?.value,
       name: formGroup.get('name')?.value,
+      ibge: formGroup.get('ibge')?.value,
       state: formGroup.get('state')?.value,
     }
   }

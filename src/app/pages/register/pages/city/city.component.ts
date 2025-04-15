@@ -26,7 +26,7 @@ export class CityComponent implements OnInit{
 
   constructor(
     private readonly fieldsService: FieldsService,
-    public readonly translatePersonMembers: TranslateService,
+    public readonly translateService: TranslateService,
     private readonly toastService: ToastService,
     private route: ActivatedRoute,
     public readonly ref: DynamicDialogRef,
@@ -39,7 +39,7 @@ export class CityComponent implements OnInit{
 
     const segments = this.route.snapshot.url;
     if(this.config.data){
-
+      this.formGroup.patchValue(this.config.data);
     }
   }
 
@@ -47,7 +47,7 @@ export class CityComponent implements OnInit{
     if(this.formGroup.valid) {
       this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup));
     }else {
-      this.toastService.warn({summary: "Mensagem", detail: this.translatePersonMembers.translate("common_message_invalid_fields")});
+      this.toastService.warn({summary: "Mensagem", detail: this.translateService.translate("common_message_invalid_fields")});
       this.fieldsService.verifyIsValid();
     }
   }
