@@ -19,7 +19,7 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
   templateUrl: './city.component.html',
   styleUrl: './city.component.scss'
 })
-export class CityComponent implements OnInit{
+export class CityComponent implements OnInit {
 
   public formGroup: FormGroup;
   protected configObj: CityConfig = new CityConfig();

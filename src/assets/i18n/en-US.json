@@ -1,3 +1,9 @@
 {
-
+  "dashboard": "Dashboard",
+  "service": "Service",
+  "general": "General",
+  "city": "Cities",
+  "jobPosition": "Job Positions",
+  "register": "Records",
+  "animals": "Animais"
 }

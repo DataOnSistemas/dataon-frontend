@@ -1,1 +1,24 @@
-<p>service works!</p>
+
+<div class="service">
+  <div class="animal">
+    <div class="field">
+      <app-auto-complete
+        formControlName="animal"
+        name="animal"
+        [field]="formGroup"
+        class="field col-12 md:col-12 c-margin"
+        [label]="translateService.translate('animals')"
+        route="city"
+        optionLabel="name"
+        type="text">
+      </app-auto-complete>
+    </div>
+    <div class="gp-buttons">
+      <div class="service-proc">
+
+      </div>
+    </div>
+  </div>
+  <div class="timeline">
+  </div>
+</div>

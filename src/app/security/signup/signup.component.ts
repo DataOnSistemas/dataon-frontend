@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
   }
 
   onValidator(): boolean{
-    if(this.signUp.valid && this.signUp.get("confirPassword ")?.value === this.signUp.value.get('password')?.value){
+    if(this.signUp.valid && this.signUp.get("confirmPassword")?.value === this.signUp.get('password')?.value){
       return true;
     }
     return false;
