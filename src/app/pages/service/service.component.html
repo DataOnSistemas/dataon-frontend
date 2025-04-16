@@ -14,9 +14,12 @@
       </app-auto-complete>
     </div>
     <div class="gp-buttons">
-      <div class="service-proc">
+      @for (proc of procedimentos; track proc.css){
+        <div class="service-proc {{proc.css}}">
+          {{ proc.label }}
+        </div>
+      }
 
-      </div>
     </div>
   </div>
   <div class="timeline">

@@ -8,12 +8,20 @@
     flex-direction: column;
     justify-content: space-between;
     width: 400px;
+    .gp-buttons{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
     .service-proc{
+      display: flex;
       height: 50px;
       width: 90px;
-      background-color: #40CACA;
       border-radius: 10px;
       cursor: pointer;
+      align-items: center;
+      font-size: 8px;
+      justify-content: center;
     }
   }
   .timeline{

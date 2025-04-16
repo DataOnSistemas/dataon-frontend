@@ -22,12 +22,14 @@ export class ServiceComponent implements OnInit {
 
   public formGroup: FormGroup;
   protected configObj: ServiceConfig = new ServiceConfig();
+  public procedimentos: any[] = []
 
   constructor(
     private readonly fieldsService: FieldsService,
     public readonly translateService: TranslateService,
   ) {
     this.formGroup = this.fieldsService.onCreateFormBuiderDynamic(this.configObj.fields);
+    this.procedimentos = this.configObj.procedimentos;
   }
 
   ngOnInit(): void {
