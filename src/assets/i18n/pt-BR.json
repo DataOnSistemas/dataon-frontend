@@ -1,8 +1,17 @@
 {
+
+  "common_description": "Descrição",
+  "common_action_save": "Salvar",
+  "common_action_cancel": "Cancelar",
+  "common_message_success": "Salvo com sucesso",
   "dashboard": "Dashboard",
   "service": "Atendimento",
   "general": "Gerais",
   "city": "Cidades",
   "jobPosition": "Profissoes",
-  "register": "Cadastros"
+  "register": "Cadastros",
+  "religion": "Religiao",
+  "levelOfEducation": "Escolaridade",
+  "media": "Midias",
+  "tagsCustomer": "Classificação"
 }

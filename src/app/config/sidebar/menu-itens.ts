@@ -32,6 +32,26 @@ export class MenuItens {
               {
                 route: "register/city",
                 name: "city"
+              },
+              {
+                route: "register/jobPosition",
+                name: "jobPosition"
+              },
+              {
+                route: "register/levelOfEducation",
+                name: "levelOfEducation"
+              },
+              {
+                route: "register/media",
+                name: "media"
+              },
+              {
+                route: "register/religion",
+                name: "religion"
+              },
+              {
+                route: "register/tagsCustomer",
+                name: "tagsCustomer"
               }
             ]
           }

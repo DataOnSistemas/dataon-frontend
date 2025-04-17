@@ -46,5 +46,73 @@
         "width": "80%"
       }
     ]
+  },
+  {
+    "route": "religion",
+    "hash": "religion",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "media",
+    "hash": "media",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "levelOfEducation",
+    "hash": "levelOfEducation",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "tagsCustomer",
+    "hash": "tagsCustomer",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
   }
 ]

@@ -1,28 +1,29 @@
-import {Component, OnInit} from '@angular/core';
-import {SharedCommonModule} from "../../../../shared/common/shared-common.module";
-import {ToastService} from "../../../../services/toast/toast.service";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {SharedCommonModule} from "../../../shared/common/shared-common.module";
+import {ToastService} from "../../../services/toast/toast.service";
 import {FormGroup} from "@angular/forms";
-import {CityConfig} from "./city.config";
-import {FieldsService} from "../../../../shared/services/fields/fields.service";
-import {TranslateService} from "../../../../shared/services/translate/translate.service";
+import {CityConfig} from "../city/city.config";
+import {CommonRegisterConfig} from "./common-register-config";
+import {FieldsService} from "../../../shared/services/fields/fields.service";
+import {TranslateService} from "../../../shared/services/translate/translate.service";
 import {ActivatedRoute} from "@angular/router";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 
 @Component({
-  selector: 'app-city',
+  selector: 'app-common-register',
   imports: [
     SharedCommonModule
   ],
   providers: [
     ToastService
   ],
-  templateUrl: './city.component.html',
-  styleUrl: './city.component.scss'
+  templateUrl: './common-register.component.html',
+  styleUrl: './common-register.component.scss'
 })
-export class CityComponent implements OnInit {
+export class CommonRegisterComponent implements OnInit {
 
   public formGroup: FormGroup;
-  protected configObj: CityConfig = new CityConfig();
+  protected configObj: CommonRegisterConfig = new CommonRegisterConfig();
 
   constructor(
     private readonly fieldsService: FieldsService,
@@ -43,6 +44,7 @@ export class CityComponent implements OnInit {
     }
   }
 
+  @HostListener('document:keydown.enter', ['$event'])
   onSave() {
     if(this.formGroup.valid) {
       this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup));
@@ -55,6 +57,5 @@ export class CityComponent implements OnInit {
   onCancel() {
     this.ref.close(null);
   }
-
 
 }
