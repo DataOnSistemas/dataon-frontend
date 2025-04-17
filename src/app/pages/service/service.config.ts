@@ -12,27 +12,22 @@ export class ServiceConfig {
   procedimentos: any[] = [
     {
       label: "Consultas",
-      icon: "",
+      icon: "do-consulta",
       css: "consulta",
     },
     {
       label: "Cirurgias",
-      icon: "",
+      icon: "do-cirurgia",
       css: "cirurgia",
     },
     {
       label: "Exames",
-      icon: "",
+      icon: "do-exame",
       css: "exame",
     },
     {
-      label: "Cirurgias",
-      icon: "",
-      css: "cirurgia",
-    },
-    {
       label: "Vacinas",
-      icon: "",
+      icon: "do-vacina",
       css: "vacina",
     },
     {
@@ -41,18 +36,23 @@ export class ServiceConfig {
       css: "procedimento",
     },
     {
+      label: "Hospedagens",
+      icon: "do-hospedagem",
+      css: "hospedagem",
+    },
+    {
       label: "Pacotes",
-      icon: "",
+      icon: "do-estetica",
       css: "pacote",
     },
     {
       label: "Creche",
-      icon: "",
+      icon: "do-creche",
       css: "creche",
     },
     {
       label: "Internamentos",
-      icon: "",
+      icon: "do-internamento",
       css: "internamento",
     },
     {

@@ -3,14 +3,15 @@ import {FormGroup} from "@angular/forms";
 import {SharedCommonModule} from "../../shared/common/shared-common.module";
 import {ToastService} from "../../services/toast/toast.service";
 import {FieldsService} from "../../shared/services/fields/fields.service";
-import {TranslateService} from "../../shared/services/translate/translate.service";
-import {CityConfig} from "../register/pages/city/city.config";
-import {ServiceConfig} from "./service.config";
+import {TranslateService} from "../../shared/services/translate/translate.service";import {ServiceConfig} from "./service.config";
+import {HistoricalComponent} from "../../components/historical/historical.component";
+
 
 @Component({
   selector: 'app-service',
   imports: [
-    SharedCommonModule
+    SharedCommonModule,
+    HistoricalComponent
   ],
   providers: [
     ToastService

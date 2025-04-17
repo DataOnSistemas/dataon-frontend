@@ -1,3 +1,4 @@
+@use "../../assets/icons.scss" as *;
 .service{
   display: flex;
   height: calc(100% - 50px);
@@ -7,7 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 400px;
+    width: 300px;
     .gp-buttons{
       display: flex;
       flex-wrap: wrap;
@@ -22,11 +23,12 @@
       align-items: center;
       font-size: 8px;
       justify-content: center;
+      flex-direction: column;
     }
   }
   .timeline{
-    width: calc(100% - 400px);
-    background-color: #428BFE;
+    padding: 5px;
+    width: calc(100% - 300px);
   }
 }
 

@@ -16,12 +16,13 @@
     <div class="gp-buttons">
       @for (proc of procedimentos; track proc.css){
         <div class="service-proc {{proc.css}}">
+          <i class="do {{proc.icon}}" ></i>
           {{ proc.label }}
         </div>
       }
-
     </div>
   </div>
   <div class="timeline">
+    <app-historical></app-historical>
   </div>
 </div>
