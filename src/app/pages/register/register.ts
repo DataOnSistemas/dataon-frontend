@@ -4,6 +4,7 @@ import {CommonRegisterComponent} from "../../components/pages/common-register/co
 import {CfopComponent} from "../../components/pages/cfop/cfop.component";
 import {CnaeComponent} from "../../components/pages/cnae/cnae.component";
 import {NcmComponent} from "../../components/pages/ncm/ncm.component";
+import {PersonComponent} from "../../components/pages/person/person.component";
 
 
 export const config: RegisterRoutes[] = [
@@ -86,6 +87,14 @@ export const config: RegisterRoutes[] = [
     paramExtra: "",
     defaultFilter: "",
     component: NcmComponent
+  },
+  {
+    header: "Clientes",
+    view: "personCustomer",
+    route: "person",
+    paramExtra: "CUSTOMER",
+    defaultFilter: "",
+    component: PersonComponent
   },
 ]
 

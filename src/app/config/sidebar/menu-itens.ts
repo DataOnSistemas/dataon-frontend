@@ -27,6 +27,15 @@ export class MenuItens {
         fixed: true,
         submenu: [
           {
+            name: 'person',
+            submenu: [
+              {
+                route: "register/personCustomer",
+                name: "personCustomer"
+              }
+            ]
+          },
+          {
             name: "general",
             submenu: [
               {

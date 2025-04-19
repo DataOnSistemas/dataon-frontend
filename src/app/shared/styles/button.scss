@@ -3,6 +3,23 @@
       width: 2rem;
       padding: 0.45rem;
   }
+  .p-inputtext{
+    background-color: rgba($color: #e9e6e6, $alpha: 0.1);
+    padding: 4px;
+  }
+  .p-dialog-mask  {
+    z-index: 99999;
+  }
+  .p-dropdown{
+    width: 100%;
+  }
+  .p-select-label{
+    padding: 4px;
+  }
+  p-inputnumber, .p-inputnumber {
+    width: 100% !important;
+  }
+
   .p-datatable .p-datatable-tbody > tr > td {
       text-align: left;
       border: none;

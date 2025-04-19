@@ -1,0 +1,7 @@
+@use "../../../shared/styles/button.scss" as *;
+:host::ng-deep{
+  .p-tabpanels{
+    padding: 0 !important;
+    padding-top: 10px !important;
+  }
+}

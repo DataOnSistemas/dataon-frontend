@@ -1,0 +1,211 @@
+<div [formGroup]="formGroup">
+  <p-tabs class="tb" value="0">
+    <p-tablist>
+      <p-tab value="0">Pessoa</p-tab>
+      <p-tab value="1">Endereços</p-tab>
+      <p-tab value="2">Telefones</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      <p-tabpanel value="0">
+        <div class="formgrid grid">
+          <app-input-text
+            formControlName="name"
+            name="name"
+            [field]="formGroup"
+            class="field col-12 md:col-8 c-margin"
+            [label]="translateService.translate('person_name')"
+            type="text">
+          </app-input-text>
+          <app-dropdown
+            formControlName="typeNaturalPerson"
+            name="typeNaturalPerson"
+            [field]="formGroup"
+            [label]="translateService.translate('common_status')"
+            [options]="_naturalPerson"
+            optionLabel="value"
+            class="field col-12 md:col-4 c-margin">
+          </app-dropdown>
+          <div class="field col-12 md:col-12">
+            <p-tabs value="0">
+              <p-tablist>
+                <p-tab value="0">Fisica</p-tab>
+                <p-tab value="1">Jurídica</p-tab>
+              </p-tablist>
+              <p-tabpanels>
+                <p-tabpanel value="0">
+                  <div formGroupName="personNatural" class="formgrid grid">
+                    <app-input-mask
+                      formControlName="cpf"
+                      name="personNatural.cpf"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_cpf')"
+                      mask="999.999.999-99">
+                    </app-input-mask>
+                    <app-input-text
+                      formControlName="rg"
+                      name="personNatural.rg"
+                      [field]="formGroup"
+                      class="field col-12 md:col-2 c-margin"
+                      [label]="translateService.translate('person_rg')">
+                    </app-input-text>
+                    <app-input-text
+                      formControlName="birthRegistry"
+                      name="personNatural.birthRegistry"
+                      [field]="formGroup"
+                      class="field col-12 md:col-4 c-margin"
+                      [label]="translateService.translate('person_birthRegistry')">
+                    </app-input-text>
+                    <app-dropdown
+                      formControlName="maritalStatus"
+                      name="personNatural.maritalStatus"
+                      [field]="formGroup"
+                      [label]="translateService.translate('person_maritalStatus')"
+                      [options]="_maritalStatus"
+                      optionLabel="value"
+                      class="field col-12 md:col-3 c-margin">
+                    </app-dropdown>
+                    <app-auto-complete
+                      formControlName="birthplaceCity"
+                      name="personNatural.birthplaceCity"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_birthplaceCity')"
+                      route="city"
+                      optionLabel="name"
+                      type="text">
+                    </app-auto-complete>
+                    <app-auto-complete
+                      formControlName="educationLevel"
+                      name="personNatural.educationLevel"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_educationLevel')"
+                      route="levelOfEducation"
+                      optionLabel="description"
+                      type="text">
+                    </app-auto-complete>
+                    <app-auto-complete
+                      formControlName="profession"
+                      name="personNatural.profession"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_profession')"
+                      route="jobPosition"
+                      optionLabel="description"
+                      type="text">
+                    </app-auto-complete>
+                    <app-dropdown
+                      formControlName="gender"
+                      name="personNatural.gender"
+                      [field]="formGroup"
+                      [label]="translateService.translate('person_gender')"
+                      [options]="_gender"
+                      optionLabel="value"
+                      class="field col-12 md:col-3 c-margin">
+                    </app-dropdown>
+                    <app-input-date
+                      formControlName="birthDate"
+                      name="personNatural.birthDate"
+                      [field]="formGroup"
+                      class="field col-12 md:col-4 c-margin"
+                      [label]="translateService.translate('person_birthDate')"
+                      type="date">
+                    </app-input-date>
+                    <app-dropdown
+                      formControlName="ruralProducer"
+                      name="personNatural.ruralProducer"
+                      [field]="formGroup"
+                      [label]="translateService.translate('person_ruralProducer')"
+                      [options]="_confirm"
+                      optionLabel="value"
+                      class="field col-12 md:col-2 c-margin">
+                    </app-dropdown>
+
+                    <app-input-text
+                      formControlName="passportNumber"
+                      name="personNatural.passportNumber"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_passportNumber')">
+                    </app-input-text>
+
+                    <app-input-text
+                      formControlName="nickname"
+                      name="personNatural.nickname"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_nickname')">
+                    </app-input-text>
+                  </div>
+                </p-tabpanel>
+                <p-tabpanel value="1">
+                  <div formGroupName="personLegal" class="formgrid grid">
+                    <app-input-text
+                      formControlName="companyName"
+                      name="personLegal.companyName"
+                      [field]="formGroup"
+                      class="field col-12 md:col-8 c-margin"
+                      [label]="translateService.translate('person_companyName')">
+                    </app-input-text>
+                    <app-input-mask
+                      formControlName="cnpj"
+                      name="personLegal.cnpj"
+                      [field]="formGroup"
+                      class="field col-12 md:col-4 c-margin"
+                      [label]="translateService.translate('person_cnpj')"
+                      mask="99.999.999/9999-99">
+                    </app-input-mask>
+                    <app-input-text
+                      formControlName="stateRegistration"
+                      name="personLegal.stateRegistration"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_stateRegistration')">
+                    </app-input-text>
+                    <app-input-text
+                      formControlName="municipalRegistration"
+                      name="personLegal.municipalRegistration"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_municipalRegistration')">
+                    </app-input-text>
+                    <app-auto-complete
+                      formControlName="cnae"
+                      name="personNatural.cnae"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_cnae')"
+                      route="cnae"
+                      optionLabel="code"
+                      type="text">
+                    </app-auto-complete>
+                    <app-auto-complete
+                      formControlName="taxRegime"
+                      name="personNatural.taxRegime"
+                      [field]="formGroup"
+                      class="field col-12 md:col-3 c-margin"
+                      [label]="translateService.translate('person_taxRegime')"
+                      route="taxRegime"
+                      optionLabel="description"
+                      type="text">
+                    </app-auto-complete>
+                  </div>
+                </p-tabpanel>
+              </p-tabpanels>
+            </p-tabs>
+          </div>
+
+        </div>
+      </p-tabpanel>
+      <p-tabpanel value="1">
+      </p-tabpanel>
+      <p-tabpanel value="2">
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
+</div>
+<div class="buttons">
+  <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
+  <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
+</div>
