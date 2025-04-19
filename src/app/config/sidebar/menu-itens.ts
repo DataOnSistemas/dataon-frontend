@@ -54,7 +54,29 @@ export class MenuItens {
                 name: "tagsCustomer"
               }
             ]
+          },
+          {
+            name: "fiscal",
+            submenu: [
+              {
+                route: "register/cfop",
+                name: "cfop"
+              },
+              {
+                route: "register/taxRegime",
+                name: "taxRegime"
+              },
+              {
+                route: "register/cnae",
+                name: "cnae"
+              },
+              {
+                route: "register/ncm",
+                name: "ncm"
+              },
+            ]
           }
+
         ]
       },
       {

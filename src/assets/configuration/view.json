@@ -114,5 +114,83 @@
         "width": "80%"
       }
     ]
+  },
+  {
+    "route": "cfop",
+    "hash": "cfop",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "cfop",
+        "header": "Descrição",
+        "width": "10%"
+      },
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "70%"
+      }
+    ]
+  },
+  {
+    "route": "taxRegime",
+    "hash": "taxRegime",
+    "filters": [
+      {
+        "field": "description",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "cnae",
+    "hash": "cnae",
+    "filters": [],
+    "fields": [
+      {
+        "field": "code",
+        "header": "Codigo",
+        "width": "10%"
+      },
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "70%"
+      }
+    ]
+  },
+  {
+    "route": "ncm",
+    "hash": "ncm",
+    "filters": [],
+    "fields": [
+      {
+        "field": "ncm",
+        "header": "NCM",
+        "width": "10%"
+      },
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "60%"
+      },
+      {
+        "field": "cest",
+        "header": "CEST",
+        "width": "10%"
+      }
+    ]
   }
 ]

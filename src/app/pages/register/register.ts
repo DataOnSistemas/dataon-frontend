@@ -1,6 +1,9 @@
 import {Type} from "@angular/core";
 import {CityComponent} from "../../components/pages/city/city.component";
 import {CommonRegisterComponent} from "../../components/pages/common-register/common-register.component";
+import {CfopComponent} from "../../components/pages/cfop/cfop.component";
+import {CnaeComponent} from "../../components/pages/cnae/cnae.component";
+import {NcmComponent} from "../../components/pages/ncm/ncm.component";
 
 
 export const config: RegisterRoutes[] = [
@@ -51,7 +54,39 @@ export const config: RegisterRoutes[] = [
     paramExtra: "",
     defaultFilter: "",
     component: CommonRegisterComponent
-  }
+  },
+  {
+    header: "Cfop",
+    view: "cfop",
+    route: "cfop",
+    paramExtra: "",
+    defaultFilter: "",
+    component: CfopComponent
+  },
+  {
+    header: "Regime de tributação",
+    view: "taxRegime",
+    route: "taxRegime",
+    paramExtra: "",
+    defaultFilter: "",
+    component: CommonRegisterComponent
+  },
+  {
+    header: "Cnae",
+    view: "cnae",
+    route: "cnae",
+    paramExtra: "",
+    defaultFilter: "",
+    component: CnaeComponent
+  },
+  {
+    header: "Ncm",
+    view: "ncm",
+    route: "ncm",
+    paramExtra: "",
+    defaultFilter: "",
+    component: NcmComponent
+  },
 ]
 
 export class RegisterRoutes {

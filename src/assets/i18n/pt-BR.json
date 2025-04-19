@@ -1,5 +1,6 @@
 {
-
+  "common_status": "Status",
+  "common_code": "Código",
   "common_description": "Descrição",
   "common_action_save": "Salvar",
   "common_action_cancel": "Cancelar",
@@ -13,5 +14,21 @@
   "religion": "Religiao",
   "levelOfEducation": "Escolaridade",
   "media": "Midias",
-  "tagsCustomer": "Classificação"
+  "fiscal": "Fiscal",
+  "taxRegime": "Regime de tributação",
+  "tagsCustomer": "Classificação",
+  "cfop": "Cfop",
+  "cfop_application": "Aplicação",
+  "cfop_inventoryMovement": "Movimenta estoque",
+  "cfop_generatesFinancial": "Gera financeiro",
+  "cnae": "Cnae",
+  "ncm": "NCM",
+  "ncm_nationalRate": "Aliquota nacional",
+  "ncm_importRate": "Aliquota importação",
+  "ncm_stateRate": "Aliquota estadual",
+  "ncm_municipalRate": "Aliquota municipal",
+  "ncm_cest": "CEST",
+  "ncm_fullDescription": "Descrição completa",
+  "ncm_segment": "Segmento",
+  "ncm_ex": "ex"
 }
