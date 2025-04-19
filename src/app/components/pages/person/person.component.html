@@ -195,13 +195,23 @@
               </p-tabpanels>
             </p-tabs>
           </div>
-          <div formGroupName="personNatural" class="formgrid grid">
-            <div class="image-container field col-12 md:col-3 c-margin">
-              <app-image-upload
-                [imageUrl]="urlImage"
-                (eventImageToken)="onGetTokenImage($event)"
-                [tokenImageUrl]="imageToken">
-              </app-image-upload>
+          <div class="field col-12 md:col-12">
+            <div formGroupName="personNatural" class="formgrid grid">
+              <div class="image-container field col-12 md:col-3 c-margin">
+                <app-image-upload
+                  [imageUrl]="urlImage"
+                  (eventImageToken)="onGetTokenImage($event)"
+                  [tokenImageUrl]="imageToken">
+                </app-image-upload>
+              </div>
+              <app-input-text
+                formControlName="obsGeneral"
+                name="personNatural.obsGeneral"
+                [field]="formGroup"
+                class="field col-12 md:col-12 c-margin"
+                [label]="translateService.translate('person_name')"
+                type="text">
+              </app-input-text>
             </div>
           </div>
         </div>
