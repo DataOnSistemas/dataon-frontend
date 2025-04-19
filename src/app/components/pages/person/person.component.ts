@@ -10,6 +10,7 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {TabsModule} from "primeng/tabs";
 import {gender, maritalStatus, naturalPerson, status, confirm} from "../../../shared/util/constants";
 import {DatePipe} from "@angular/common";
+import {ImageUploadService} from "../../../shared/components/inputs/image-upload/image-upload.service";
 
 @Component({
   selector: 'app-person',
@@ -37,6 +38,10 @@ export class PersonComponent implements OnInit{
   public _gender = gender;
   public _confirm = confirm;
 
+  // variaveis
+  public imageToken = "";
+  public urlImage = "";
+
   constructor(
     private readonly fieldsService: FieldsService,
     public readonly translateService: TranslateService,
@@ -45,6 +50,7 @@ export class PersonComponent implements OnInit{
     public readonly ref: DynamicDialogRef,
     public readonly config: DynamicDialogConfig,
     private datePipe: DatePipe,
+    private imageService: ImageUploadService
   ) {
     this.formGroup = this.fieldsService.onCreateFormBuiderDynamic(this.configObj.fields);
   }
@@ -99,5 +105,19 @@ export class PersonComponent implements OnInit{
     this.ref.close(null);
   }
 
-  protected readonly _status = status;
+  public onGetTokenImage(image: any): void {
+    this.imageToken = image;
+  }
+
+  private onGetUrlImage(){
+    this.imageService.onRequestDonwload(this.imageToken).subscribe({
+      next: (res) => {
+        this.urlImage = res["url"];
+      },
+      error: error => {
+        this.toastService.error({summary: "Mensagem", detail: "Falha ao fazer download da imagem"});
+      }
+    })
+  }
+
 }

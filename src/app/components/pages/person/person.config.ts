@@ -802,11 +802,12 @@ export class PersonConfig {
 
   convertFormGroupToDTO(formGroup: FormGroup, datePipe: DatePipe): any {
      const dto = {
-      id: formGroup.get('id')?.value,
-      registrationDate: formGroup.get('registrationDate')?.value,
-      name: formGroup.get('name')?.value,
+       id: formGroup.get('id')?.value,
+       registrationDate: formGroup.get('registrationDate')?.value,
+       name: formGroup.get('name')?.value,
        typeNaturalPerson: formGroup.get('typeNaturalPerson')?.value["code"],
-      personNatural: formGroup.get('personNatural')?.value,
+       personNatural: formGroup.get('personNatural')?.value,
+       personLegal: formGroup.get('personLegal')?.value,
     }
     if(dto.id){
       dto.registrationDate = datePipe.transform(dto.registrationDate, 'yyyy-MM-dd')!;
