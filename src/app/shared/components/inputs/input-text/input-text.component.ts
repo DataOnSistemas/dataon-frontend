@@ -38,6 +38,7 @@ import {TextareaModule} from "primeng/textarea";
 export class InputTextComponent extends AppControlValueAccessor {
 
   @Input() fieldType: string = "input-text";
+  @Input() autoResize: boolean = false;
 
   constructor(private readonly fieldServiceInputText: FieldsService){
     super(fieldServiceInputText)

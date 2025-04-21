@@ -20,7 +20,7 @@
             formControlName="typeNaturalPerson"
             name="typeNaturalPerson"
             [field]="formGroup"
-            [label]="translateService.translate('common_status')"
+            [label]="translateService.translate('person_typeNaturalPerson')"
             [options]="_naturalPerson"
             optionLabel="value"
             class="field col-12 md:col-4 c-margin">
@@ -196,22 +196,199 @@
             </p-tabs>
           </div>
           <div class="field col-12 md:col-12">
-            <div formGroupName="personNatural" class="formgrid grid">
-              <div class="image-container field col-12 md:col-3 c-margin">
+            <div formGroupName="personCustomer" class="formgrid grid">
+              <div class="col-12 md:col-2">
                 <app-image-upload
+                  class="image-container field col-12 md:col-2"
                   [imageUrl]="urlImage"
                   (eventImageToken)="onGetTokenImage($event)"
                   [tokenImageUrl]="imageToken">
                 </app-image-upload>
               </div>
-              <app-input-text
-                formControlName="obsGeneral"
-                name="personNatural.obsGeneral"
+              <div class="formgrid grid col-12 md:col-10">
+                <app-input-text
+                  formControlName="origin"
+                  name="personCustomer.origin"
+                  [field]="formGroup"
+                  class="field col-12 md:col-4"
+                  [label]="translateService.translate('person_origin')"
+                  type="text">
+                </app-input-text>
+                <app-auto-complete
+                  formControlName="media"
+                  name="personCustomer.media"
+                  [field]="formGroup"
+                  class="field col-12 md:col-4"
+                  [label]="translateService.translate('person_media')"
+                  route="media"
+                  optionLabel="description"
+                  type="text">
+                </app-auto-complete>
+                <app-dropdown
+                  formControlName="status"
+                  name="personNatural.status"
+                  [field]="formGroup"
+                  [label]="translateService.translate('person_status')"
+                  [options]="_status"
+                  optionLabel="value"
+                  class="field col-12 md:col-4">
+                </app-dropdown>
+                <app-dropdown
+                  formControlName="allowSms"
+                  name="personNatural.allowSms"
+                  [field]="formGroup"
+                  [label]="translateService.translate('person_allowSms')"
+                  [options]="_confirm"
+                  optionLabel="value"
+                  class="field col-12 md:col-4">
+                </app-dropdown>
+                <app-dropdown
+                  formControlName="allowEmail"
+                  name="personNatural.allowEmail"
+                  [field]="formGroup"
+                  [label]="translateService.translate('person_allowEmail')"
+                  [options]="_confirm"
+                  optionLabel="value"
+                  class="field col-12 md:col-4">
+                </app-dropdown>
+                <app-auto-complete
+                  formControlName="classification"
+                  name="personCustomer.classification"
+                  [field]="formGroup"
+                  class="field col-12 md:col-4"
+                  [label]="translateService.translate('person_tagsCustomer')"
+                  route="tagsCustomer"
+                  optionLabel="description"
+                  type="text">
+                </app-auto-complete>
+              </div>
+              <app-input-number
+                type="text"
+                formControlName="monthlyIncome"
+                name="personCustomer.monthlyIncome"
                 [field]="formGroup"
-                class="field col-12 md:col-12 c-margin"
-                [label]="translateService.translate('person_name')"
-                type="text">
+                class="field col-12 md:col-4"
+                [label]="translateService.translate('person_monthlyIncome')">
+              </app-input-number>
+              <app-input-number
+                type="text"
+                formControlName="creditLimit"
+                name="personCustomer.creditLimit"
+                [field]="formGroup"
+                class="field col-12 md:col-4 c-margin"
+                [label]="translateService.translate('person_creditLimit')">
+              </app-input-number>
+              <app-input-number
+                type="text"
+                formControlName="creditBalance"
+                name="personCustomer.creditBalance"
+                [field]="formGroup"
+                class="field col-12 md:col-4"
+                [label]="translateService.translate('person_creditBalance')">
+              </app-input-number>
+              <app-dropdown
+                formControlName="taxPayerType"
+                name="personNatural.taxPayerType"
+                [field]="formGroup"
+                [label]="translateService.translate('person_taxPayerType')"
+                [options]="_taxPayer"
+                optionLabel="value"
+                class="field col-12 md:col-3">
+              </app-dropdown>
+              <app-input-text
+                type="text"
+                formControlName="suframaRegistration"
+                name="personCustomer.suframaRegistration"
+                [field]="formGroup"
+                class="field col-12 md:col-3"
+                [label]="translateService.translate('person_suframaRegistration')">
               </app-input-text>
+              <app-dropdown
+                formControlName="issRetention"
+                name="personNatural.issRetention"
+                [field]="formGroup"
+                [label]="translateService.translate('person_issRetention')"
+                [options]="_confirm"
+                optionLabel="value"
+                class="field col-12 md:col-2">
+              </app-dropdown>
+              <app-dropdown
+                formControlName="simpleNationalOpting"
+                name="personNatural.simpleNationalOpting"
+                [field]="formGroup"
+                [label]="translateService.translate('person_simpleNationalOpting')"
+                [options]="_confirm"
+                optionLabel="value"
+                class="field col-12 md:col-4">
+              </app-dropdown>
+              <div class="field col-12 md:col-12">
+                <p-tabs value="0">
+                  <p-tablist>
+                    <p-tab value="0">{{ translateService.translate("person_generalNotes") }}</p-tab>
+                    <p-tab value="1">{{ translateService.translate("person_personalNotes") }}</p-tab>
+                    <p-tab value="2">{{ translateService.translate("person_commercialNotes") }}</p-tab>
+                    <p-tab value="3">{{ translateService.translate("person_guarantorNotes") }}</p-tab>
+                    <p-tab value="4">{{ translateService.translate("person_assetNotes") }}</p-tab>
+                    <p-tab value="5">{{ translateService.translate("person_authorizedNotes") }}</p-tab>
+                  </p-tablist>
+                  <p-tabpanels>
+                    <p-tabpanel value="0">
+                      <app-input-text
+                        fieldType="input-text-area"
+                        formControlName="generalNotes"
+                        name="personCustomer.generalNotes"
+                        [field]="formGroup"
+                        class="field col-12 md:col-12">
+                      </app-input-text>
+                    </p-tabpanel>
+                    <p-tabpanel value="1">
+                      <app-input-text
+                        fieldType="input-text-area"
+                        formControlName="personalNotes"
+                        name="personCustomer.personalNotes"
+                        [field]="formGroup"
+                        class="field col-12 md:col-12">
+                      </app-input-text>
+                    </p-tabpanel>
+                    <p-tabpanel value="2">
+                      <app-input-text
+                        fieldType="input-text-area"
+                        formControlName="commercialNotes"
+                        name="personCustomer.commercialNotes"
+                        [field]="formGroup"
+                        class="field col-12 md:col-12">
+                      </app-input-text>
+                    </p-tabpanel>
+                    <p-tabpanel value="3">
+                      <app-input-text
+                        fieldType="input-text-area"
+                        formControlName="guarantorNotes"
+                        name="personCustomer.guarantorNotes"
+                        [field]="formGroup"
+                        class="field col-12 md:col-12">
+                      </app-input-text>
+                    </p-tabpanel>
+                    <p-tabpanel value="4">
+                      <app-input-text
+                        fieldType="input-text-area"
+                        formControlName="assetNotes"
+                        name="personCustomer.assetNotes"
+                        [field]="formGroup"
+                        class="field col-12 md:col-12">
+                      </app-input-text>
+                    </p-tabpanel>
+                    <p-tabpanel value="5">
+                      <app-input-text
+                        fieldType="input-text-area"
+                        formControlName="authorizedNotes"
+                        name="personCustomer.authorizedNotes"
+                        [field]="formGroup"
+                        class="field col-12 md:col-12">
+                      </app-input-text>
+                    </p-tabpanel>
+                  </p-tabpanels>
+                </p-tabs>
+              </div>
             </div>
           </div>
         </div>

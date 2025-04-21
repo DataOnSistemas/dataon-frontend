@@ -8,7 +8,7 @@ import {TranslateService} from "../../../shared/services/translate/translate.ser
 import {ActivatedRoute} from "@angular/router";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {TabsModule} from "primeng/tabs";
-import {gender, maritalStatus, naturalPerson, status, confirm} from "../../../shared/util/constants";
+import {gender, maritalStatus, naturalPerson, status, confirm, taxPayer} from "../../../shared/util/constants";
 import {DatePipe} from "@angular/common";
 import {ImageUploadService} from "../../../shared/components/inputs/image-upload/image-upload.service";
 
@@ -37,6 +37,8 @@ export class PersonComponent implements OnInit{
   public _maritalStatus = maritalStatus;
   public _gender = gender;
   public _confirm = confirm;
+  public _status = status;
+  public _taxPayer = taxPayer;
 
   // variaveis
   public imageToken = "";

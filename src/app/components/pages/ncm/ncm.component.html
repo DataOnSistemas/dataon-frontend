@@ -1,0 +1,89 @@
+<div [formGroup]="formGroup">
+  <div class="formgrid grid">
+    <app-input-text
+      formControlName="ncm"
+      name="ncm"
+      [field]="formGroup"
+      class="field col-12 md:col-2 c-margin"
+      [label]="translateService.translate('ncm')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="ex"
+      name="ex"
+      [field]="formGroup"
+      class="field col-12 md:col-2 c-margin"
+      [label]="translateService.translate('ncm_ex')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="description"
+      name="description"
+      [field]="formGroup"
+      class="field col-12 md:col-8 c-margin"
+      [label]="translateService.translate('common_description')"
+      type="text">
+    </app-input-text>
+    <app-input-number
+      formControlName="nationalRate"
+      name="nationalRate"
+      [field]="formGroup"
+      class="field col-12 md:col-3 c-margin"
+      [label]="translateService.translate('ncm_nationalRate')"
+      type="text">
+    </app-input-number>
+    <app-input-number
+      formControlName="importRate"
+      name="importRate"
+      [field]="formGroup"
+      class="field col-12 md:col-3 c-margin"
+      [label]="translateService.translate('ncm_importRate')"
+      type="text">
+    </app-input-number>
+    <app-input-number
+      formControlName="stateRate"
+      name="stateRate"
+      [field]="formGroup"
+      class="field col-12 md:col-3 c-margin"
+      [label]="translateService.translate('ncm_stateRate')"
+      type="text">
+    </app-input-number>
+    <app-input-number
+      formControlName="municipalRate"
+      name="municipalRate"
+      [field]="formGroup"
+      class="field col-12 md:col-3 c-margin"
+      [label]="translateService.translate('ncm_municipalRate')"
+      type="text">
+    </app-input-number>
+    <app-input-text
+      formControlName="cest"
+      name="cest"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('ncm_cest')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="segment"
+      name="segment"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('ncm_segment')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      fieldType="input-text-area"
+      formControlName="fullDescription"
+      name="fullDescription"
+      [field]="formGroup"
+      class="field col-12 md:col-12 c-margin"
+      [label]="translateService.translate('ncm_fullDescription')"
+      type="text">
+    </app-input-text>
+  </div>
+</div>
+<div class="buttons">
+  <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
+  <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
+</div>

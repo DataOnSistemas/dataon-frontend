@@ -44,31 +44,57 @@ export class PersonConfig {
           "fieldName": "id",
           "required": true,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "record",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "origin",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "precautions",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
         },
         {
           "fieldName": "status",
-          "required": true,
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
-          "fieldName": "image",
-          "required": true,
+          "fieldName": "photo",
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
-          "fieldName": "sms",
-          "required": true,
+          "fieldName": "allowSms",
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
-          "fieldName": "email",
-          "required": true,
+          "fieldName": "allowEmail",
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
           "fieldName": "media",
@@ -84,49 +110,98 @@ export class PersonConfig {
         },
         {
           "fieldName": "monthlyIncome",
-          "required": true,
-          "hidden": false,
-          "type": "string"
-        },
-        {
-          "fieldName": "creditiLimit",
-          "required": true,
-          "hidden": false,
-          "type": "string"
-        },
-        {
-          "fieldName": "tagsCustomer",
           "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "creditLimit",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "suframaRegistration",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
         },
         {
           "fieldName": "taxPayerType",
-          "required": true,
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
-          "fieldName": "iss",
-          "required": true,
+          "fieldName": "issRetention",
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
-          "fieldName": "simplesNacional",
-          "required": true,
+          "fieldName": "generalNotes",
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
         },
         {
-          "fieldName": "obsGeneral",
-          "required": true,
+          "fieldName": "personalNotes",
+          "required": false,
           "hidden": false,
-          "type": "string"
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "commercialNotes",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "guarantorNotes",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "assetNotes",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "simpleNationalOpting",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "authorizedNotes",
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
         },
         {
           "fieldName": "creditBalance",
-          "required": true,
+          "required": false,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "classification",
+          "required": false,
           "hidden": false,
           "type": "string"
         }

@@ -44,3 +44,9 @@ export const gender = [
   { key: "MALE", value: "Masculino", code: 0 },
   { key: "FEMALE", value: "Feminino", code: 1 }
 ]
+
+export const taxPayer = [
+  { key: "ICMS", value: "ICMS", code: 1 },
+  { key: "ISENTO", value: "Isento", code: 2 },
+  { key: "NAO_CONTRIBUINTE", value: "Não Contribuinte", code: 9 }
+]
