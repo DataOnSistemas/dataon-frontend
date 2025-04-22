@@ -2,10 +2,18 @@ import {FormGroup} from "@angular/forms";
 import {DatePipe} from "@angular/common";
 import {DataTable} from "../../../shared/components/datatable/datatable";
 import {ETypeRegistry} from "../../../shared/util/enums";
+import {DynamicDialogConfig} from "primeng/dynamicdialog";
+import {confirm, gender, maritalStatus, naturalPerson, status, taxPayer} from "../../../shared/util/constants";
 
 export class PersonConfig {
 
 
+  public _naturalPerson = naturalPerson;
+  public _maritalStatus = maritalStatus;
+  public _gender = gender;
+  public _confirm = confirm;
+  public _status = status;
+  public _taxPayer = taxPayer;
 
   fields: any[] = [
     {
@@ -16,7 +24,7 @@ export class PersonConfig {
     },
     {
       "fieldName": "registrationDate",
-      "required": true,
+      "required": false,
       "hidden": false,
       "type": "string"
     },
@@ -28,7 +36,7 @@ export class PersonConfig {
     },
     {
       "fieldName": "typePerson",
-      "required": true,
+      "required": false,
       "hidden": false,
       "type": "string"
     },
@@ -46,7 +54,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string",
           "fields": []
@@ -219,7 +227,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -395,7 +403,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -427,7 +435,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -459,7 +467,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -539,7 +547,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -643,7 +651,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -741,7 +749,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -791,7 +799,7 @@ export class PersonConfig {
       "fields": [
         {
           "fieldName": "id",
-          "required": true,
+          "required": false,
           "hidden": false,
           "type": "string"
         },
@@ -887,12 +895,30 @@ export class PersonConfig {
        typeNaturalPerson: formGroup.get('typeNaturalPerson')?.value["code"],
        personNatural: formGroup.get('personNatural')?.value,
        personLegal: formGroup.get('personLegal')?.value,
+       personCustomer: formGroup.get('personCustomer')?.value,
+       personAddress: formGroup.get('personAddress')?.value,
+       personEmail: formGroup.get('personEmail')?.value,
+       personPhone: formGroup.get('personPhone')?.value,
     }
-    if(dto.id){
-      dto.registrationDate = datePipe.transform(dto.registrationDate, 'yyyy-MM-dd')!;
+    if(!dto.id){
+      dto.registrationDate = new Date();
     }
-    dto.personNatural.birthDate = datePipe.transform(dto.personNatural.birthDate, 'yyyy-MM-dd')!;
+
+    dto.personCustomer.status = dto.personCustomer.status["code"];
+    dto.personCustomer.allowSms = dto.personCustomer.allowSms["code"];
+    dto.personCustomer.allowEmail = dto.personCustomer.allowEmail["code"];
+
     return dto;
+  }
+
+
+  convertDtoToFormGroup(formGroup: FormGroup, config: DynamicDialogConfig) {
+
+    config.data.personCustomer.status = status.find(e => e.code === config.data.personCustomer.status);
+    config.data.personCustomer.allowSms = confirm.find(e => e.code === config.data.personCustomer.allowSms);
+    config.data.personCustomer.allowEmail = confirm.find(e => e.code === config.data.personCustomer.allowEmail);
+
+    formGroup.patchValue(config.data);
   }
 
   onConfigDatatable(type: ETypeRegistry): DataTable{
@@ -987,4 +1013,6 @@ export class PersonConfig {
       }
     ];
   }
+
+
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Type} from '@angular/core';
 import { SharedCommonModule } from '../../shared/common/shared-common.module';
 import { DataTable } from '../../shared/components/datatable/datatable';
 import {RegisterService} from "../../services/register/register.service";
@@ -151,8 +151,14 @@ export class RegisterComponent implements OnInit  {
     }
   }
 
-  onOpenModal(obj: any){
-    this.ref = this.dialogService.open(this.configuration.component,
+  async onOpenModal(obj: any){
+    let component:Type<any>;
+    if(this.configuration.loadComponent){
+      component = await this.configuration.loadComponent();
+    } else {
+      component = this.configuration.component;
+    }
+    this.ref = this.dialogService.open(component,
       {
         header: this.configuration.header,
         width: '80vw',

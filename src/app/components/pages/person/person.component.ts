@@ -83,7 +83,7 @@ export class PersonComponent implements OnInit{
     this.setConfigContext(segments[segments.length - 1]?.path || '')
 
     if(this.config.data){
-      this.formGroup.patchValue(this.config.data);
+      this.configObj.convertDtoToFormGroup(this.formGroup, this.config);
     }
   }
 
@@ -114,10 +114,8 @@ export class PersonComponent implements OnInit{
 
   @HostListener('document:keydown.enter', ['$event'])
   onSave() {
-    console.log(this.configObj.convertFormGroupToDTO(this.formGroup, this.datePipe))
     if(this.formGroup.valid) {
-      console.log(this.configObj.convertFormGroupToDTO(this.formGroup, this.datePipe))
-      //this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup));
+      this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup, this.datePipe));
     }else {
       this.toastService.warn({summary: "Mensagem", detail: this.translateService.translate("common_message_invalid_fields")});
       this.fieldsService.verifyIsValid();

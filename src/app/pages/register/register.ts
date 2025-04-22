@@ -14,7 +14,8 @@ export const config: RegisterRoutes[] = [
     route: "city",
     paramExtra: "",
     defaultFilter: "",
-    component: CityComponent
+    component: CityComponent,
+    loadComponent: () => import('../../components/pages/city/city.component').then(m => m.CityComponent)
   },
   {
     header: "Profissoes",
@@ -105,4 +106,5 @@ export class RegisterRoutes {
   paramExtra: string = "";
   defaultFilter: string = "";
   component: Type<any> = CityComponent;
+  loadComponent?: () => Promise<Type<any>>;
 }
