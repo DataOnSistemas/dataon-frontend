@@ -6,6 +6,8 @@
   "common_action_save": "Salvar",
   "common_action_cancel": "Cancelar",
   "common_message_success": "Salvo com sucesso",
+  "common_obs": "Observações",
+  "common_type": "Tipo",
   "dashboard": "Dashboard",
   "service": "Atendimento",
   "general": "Gerais",
@@ -81,5 +83,8 @@
   "person_state": "UF",
   "person_country": "País",
   "address_typeAddress": "Tipo endereço",
-  "address_address": "Endereço"
+  "address_address": "Endereço",
+  "phone": "Telefone"
+
+
 }

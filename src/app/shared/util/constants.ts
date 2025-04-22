@@ -57,3 +57,10 @@ export const typeAddress = [
   { key: "BILLING", value: "Cobrança", code: 2 },
   { key: "OUTHER", value: "Outro", code: 3 }
 ]
+
+export const typeContact = [
+  { key: "RESIDENTIAL", value: "Principal", code: 0 },
+  { key: "BUSINES", value: "Comercial", code: 1 },
+  { key: "MOBILE", value: "Pessoal", code: 2 },
+  { key: "OUTHER", value: "Outro", code: 3 }
+]

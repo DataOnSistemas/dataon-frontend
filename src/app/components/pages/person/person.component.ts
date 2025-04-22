@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, OnInit, Type} from '@angular/core';
 import {SharedCommonModule} from "../../../shared/common/shared-common.module";
 import {ToastService} from "../../../services/toast/toast.service";
 import {FormArray, FormGroup} from "@angular/forms";
@@ -16,6 +16,8 @@ import {AddressComponent} from "../../modal/address/address.component";
 import {DatatableComponent} from "../../../shared/components/datatable/datatable.component";
 import {DataTable} from "../../../shared/components/datatable/datatable";
 import {ETypeRegistry} from "../../../shared/util/enums";
+import {PhoneComponent} from "../../modal/phone/phone.component";
+import {EmailComponent} from "../../modal/email/email.component";
 
 @Component({
   selector: 'app-person',
@@ -44,6 +46,7 @@ export class PersonComponent implements OnInit{
   protected dataTablePhone: DataTable;
   protected dataTableEmail: DataTable;
   // constants
+  protected readonly ETypeRegistry = ETypeRegistry;
   private _type: string = "COMPANY";
   public _naturalPerson = naturalPerson;
   public _maritalStatus = maritalStatus;
@@ -141,7 +144,7 @@ export class PersonComponent implements OnInit{
   }
 
   public openModal(type: ETypeRegistry, obj: any) {
-    this.dialogRef = this.dialogService.open(AddressComponent,
+    this.dialogRef = this.dialogService.open(this.onSetModal(type),
     {
       header: "Endereços",
       width: '70vw',
@@ -154,16 +157,40 @@ export class PersonComponent implements OnInit{
     });
 
     this.dialogRef.onClose.subscribe((data: any) => {
-      if(type === ETypeRegistry.ADDRESS){
-        if(data){
-          (this.formGroup.get('personAddress') as FormArray).push(data);
-          this.dataTableAddress.values.push(this.formGroup.get('personAddress')?.value);
-          console.log(this.dataTableAddress.values);
+      if(data){
+        switch (type) {
+          case ETypeRegistry.PHONE:
+            (this.formGroup.get('personPhone') as FormArray).push(data);
+            this.dataTablePhone.values = this.formGroup.get('personPhone')?.value;
+            break;
+          case ETypeRegistry.ADDRESS:
+            (this.formGroup.get('personAddress') as FormArray).push(data);
+            this.dataTableAddress.values = this.formGroup.get('personAddress')?.value;
+            break;
+          case ETypeRegistry.EMAIL:
+            (this.formGroup.get('personEmail') as FormArray).push(data);
+            this.dataTableEmail.values = this.formGroup.get('personEmail')?.value;
+            break;
         }
       }
     });
   }
 
+  private onSetModal(eComp: ETypeRegistry): Type<any>{
+    let type: Type<any>;
 
-  protected readonly ETypeRegistry = ETypeRegistry;
+    switch (eComp) {
+      case ETypeRegistry.PHONE:
+        type = PhoneComponent;
+        break;
+      case ETypeRegistry.ADDRESS:
+        type = AddressComponent;
+        break;
+      case ETypeRegistry.EMAIL:
+        type = EmailComponent;
+        break;
+    }
+
+    return type;
+  }
 }

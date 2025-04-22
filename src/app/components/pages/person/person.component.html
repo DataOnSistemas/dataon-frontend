@@ -398,11 +398,26 @@
           <app-datatable
             [config]="dataTableAddress"
             (onRegister)="openModal(ETypeRegistry.ADDRESS, null)">
-
           </app-datatable>
         </div>
       </p-tabpanel>
       <p-tabpanel value="2">
+        <div>
+          <div>Telefones</div>
+          <hr>
+          <app-datatable
+            [config]="dataTablePhone"
+            (onRegister)="openModal(ETypeRegistry.PHONE, null)">
+          </app-datatable>
+        </div>
+        <div style="margin-top: 30px">
+          <div>Emails</div>
+          <hr>
+          <app-datatable
+            [config]="dataTableEmail"
+            (onRegister)="openModal(ETypeRegistry.EMAIL, null)">
+          </app-datatable>
+        </div>
       </p-tabpanel>
     </p-tabpanels>
   </p-tabs>

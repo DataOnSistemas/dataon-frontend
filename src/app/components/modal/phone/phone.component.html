@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup">
+  <div class="formgrid grid">
+    <app-input-text
+      formControlName="phone"
+      name="phone"
+      [field]="formGroup"
+      class="field col-12 md:col-8 c-margin"
+      [label]="translateService.translate('phone')"
+      type="text">
+    </app-input-text>
+    <app-dropdown
+      formControlName="type"
+      name="type"
+      [field]="formGroup"
+      [label]="translateService.translate('commom_type')"
+      [options]="_typeContact"
+      optionLabel="value"
+      class="field col-12 md:col-4 c-margin">
+    </app-dropdown>
+    <app-input-text
+      formControlName="notes"
+      name="notes"
+      [field]="formGroup"
+      class="field col-12 md:col-12 c-margin"
+      [label]="translateService.translate('common_obs')"
+      type="text">
+    </app-input-text>
+  </div>
+</div>
+<div class="buttons">
+  <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
+  <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
+</div>

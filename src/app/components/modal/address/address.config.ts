@@ -89,21 +89,4 @@ export class AddressConfig {
     }
   ]
 
-  convertFormGroupToDTO(formGroup: FormGroup): any {
-    return {
-      id: formGroup.get('id')?.value,
-      city: formGroup.get('city')?.value,
-      typeAddress: formGroup.get('typeAddress')?.value["code"],
-      zipCode: formGroup.get('zipCode')?.value,
-      address: formGroup.get('address')?.value,
-      neighborhood: formGroup.get('neighborhood')?.value,
-      complement: formGroup.get('complement')?.value,
-      number: formGroup.get('number')?.value,
-      status: formGroup.get('status')?.value,
-      notes: formGroup.get('notes')?.value,
-      latitude: formGroup.get('latitude')?.value,
-      longitude: formGroup.get('longitude')?.value,
-    }
-  }
-
 }

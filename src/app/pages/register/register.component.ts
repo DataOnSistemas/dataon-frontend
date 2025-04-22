@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit  {
       next: (res) => {
         this.datatable.values = res.contents;
         this.datatable.totalRecords = res.total;
-        this.datatable.page = res.offset + 1;
+        this.datatable.page = res.offset;
         this.datatable.size = res.size;
         this.loadingService.showLoading.next(false);
       },

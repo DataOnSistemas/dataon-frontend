@@ -391,7 +391,7 @@ export class PersonConfig {
       "fieldName": "personEmail",
       "required": false,
       "hidden": false,
-      "type": "object",
+      "type": "array",
       "fields": [
         {
           "fieldName": "id",
@@ -423,7 +423,7 @@ export class PersonConfig {
       "fieldName": "personPhone",
       "required": false,
       "hidden": false,
-      "type": "object",
+      "type": "array",
       "fields": [
         {
           "fieldName": "id",
