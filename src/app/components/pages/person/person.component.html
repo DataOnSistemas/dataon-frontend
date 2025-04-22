@@ -394,6 +394,13 @@
         </div>
       </p-tabpanel>
       <p-tabpanel value="1">
+        <div class="tb-person">
+          <app-datatable
+            [config]="dataTableAddress"
+            (onRegister)="openModal(ETypeRegistry.ADDRESS, null)">
+
+          </app-datatable>
+        </div>
       </p-tabpanel>
       <p-tabpanel value="2">
       </p-tabpanel>

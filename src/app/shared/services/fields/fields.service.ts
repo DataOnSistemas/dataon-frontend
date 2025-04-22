@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -41,15 +41,30 @@ export class FieldsService {
   public onCreateFormBuiderDynamic(fields: any[]): FormGroup{
     var form = this.formBuilder.group({});
 
-    fields.forEach(e => {
-      if(e.type === 'object'){
-        form.addControl(e.fieldName,this.onCreateFormBuiderDynamic(e.fields));
-      } else {
-        form.addControl(e.fieldName, this.onSetValidatoDynamic(e));
+    fields.forEach(field => {
+      if(field.type === 'object'){
+        form.addControl(field.fieldName,this.onCreateFormBuiderDynamic(field.fields));
+      } else if (field.type === 'array'){
+        const formArray = new FormArray([]);
+
+        form.addControl(field.fieldName, formArray);
+      }
+      else {
+        form.addControl(field.fieldName, this.onSetValidatoDynamic(field));
       }
 
     })
     return form;
+  }
+
+  private setItemArray(field: any): FormGroup | FormControl {
+    // Se os itens do array forem objetos:
+    if (field.itemType === 'object') {
+      return this.onCreateFormBuiderDynamic(field.fields);
+    } else {
+      // Se os itens forem campos simples
+      return this.onSetValidatoDynamic(field);
+    }
   }
 
   private onSetValidatoDynamic(fields: any): FormControl{

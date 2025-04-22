@@ -50,3 +50,10 @@ export const taxPayer = [
   { key: "ISENTO", value: "Isento", code: 2 },
   { key: "NAO_CONTRIBUINTE", value: "Não Contribuinte", code: 9 }
 ]
+
+export const typeAddress = [
+  { key: "MAIN", value: "Principal", code: 0 },
+  { key: "DELIVERY", value: "Entrega", code: 1 },
+  { key: "BILLING", value: "Cobrança", code: 2 },
+  { key: "OUTHER", value: "Outro", code: 3 }
+]

@@ -159,10 +159,9 @@ export class RegisterComponent implements OnInit  {
         modal:true,
         closable: true,
         draggable: true,
-
         maximizable: false,
         data: obj,
-        baseZIndex: 999999,
+        baseZIndex: 999998,
       });
 
 

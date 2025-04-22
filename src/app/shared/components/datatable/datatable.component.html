@@ -19,10 +19,12 @@
         <p-button
           (click)="onShowFilters()"
           pRipple
+          *ngIf="config.enableFilter"
           [outlined]="true"
           styleClass="p-button-text"
           icon="pi pi-filter"/>
         <p-button
+          *ngIf="config.enablePrint"
           (click)="onShowFilters()"
           pRipple
           severity="info"
@@ -30,12 +32,14 @@
           styleClass="p-button-text"
           icon="pi pi-print"/>
         <p-button
+          *ngIf="config.enableRefresh"
           (click)="onRefreshData()"
           pRipple
           [outlined]="true"
           styleClass="p-button-text"
           icon="pi pi-refresh"/>
         <p-button
+          *ngIf="config.enableSearch"
           (click)="onRefreshData()"
           pRipple
           [outlined]="true"
@@ -44,6 +48,7 @@
       </div>
       <div class="group-paginator">
         <p-paginator
+          *ngIf="config.enablePagginator"
           (onPageChange)="pageChange($event)"
           [first]="1"
           [rows]="config.size"
@@ -72,7 +77,7 @@
             [tableStyle]="{ 'min-width': '50rem'}">
           <ng-template pTemplate="caption">
             <div class="flex">
-              <p-iconField iconPosition="left" class="ml-auto">
+              <p-iconField *ngIf="config.enableSearch" iconPosition="left" class="ml-auto">
                 <p-inputIcon>
                   <i class="pi pi-search"></i>
                 </p-inputIcon>

@@ -1,0 +1,87 @@
+<div [formGroup]="formGroup">
+  <div class="formgrid grid">
+    <app-input-text
+      formControlName="zipCode"
+      name="zipCode"
+      [field]="formGroup"
+      class="field col-12 md:col-3 c-margin"
+      [label]="translateService.translate('address_zipCode')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="address"
+      name="address"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('address_address')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="number"
+      name="number"
+      [field]="formGroup"
+      class="field col-12 md:col-3 c-margin"
+      [label]="translateService.translate('address_number')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="neighborhood"
+      name="neighborhood"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('address_neighborhood')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="complement"
+      name="complement"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('address_complement')"
+      type="text">
+    </app-input-text>
+    <app-auto-complete
+      formControlName="city"
+      name="city"
+      [field]="formGroup"
+      class="field col-12 md:col-4 c-margin"
+      [label]="translateService.translate('person_city')"
+      route="city"
+      optionLabel="name"
+      type="text">
+    </app-auto-complete>
+    <app-auto-complete
+      formControlName="state"
+      name="state"
+      [field]="formGroup"
+      class="field col-12 md:col-4 c-margin"
+      [label]="translateService.translate('person_state')"
+      route="state"
+      optionLabel="name"
+      type="text">
+    </app-auto-complete>
+    <app-auto-complete
+      formControlName="country"
+      name="country"
+      [field]="formGroup"
+      class="field col-12 md:col-4 c-margin"
+      [label]="translateService.translate('person_country')"
+      route="country"
+      optionLabel="name"
+      type="text">
+    </app-auto-complete>
+    <app-dropdown
+      formControlName="typeAddress"
+      name="typeAddress"
+      [field]="formGroup"
+      [label]="translateService.translate('address_typeAddress')"
+      [options]="_typeAddress"
+      optionLabel="value"
+      class="field col-12 md:col-12 c-margin">
+    </app-dropdown>
+  </div>
+</div>
+<div class="buttons">
+  <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
+  <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
+</div>

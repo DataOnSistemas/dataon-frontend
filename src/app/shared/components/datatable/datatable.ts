@@ -5,6 +5,11 @@ export class DataTable {
     page: number = 1;
     size: number = 10;
     route: string = "";
+    enablePagginator: boolean = true;
+    enableSearch: boolean = true;
+    enablePrint: boolean = true;
+    enableRefresh: boolean = true;
+    enableFilter: boolean = true;
     classBase?: Function;
     filters?: Filters;
     treeValues: any[] = [];

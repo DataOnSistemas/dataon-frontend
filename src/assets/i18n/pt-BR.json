@@ -1,6 +1,7 @@
 {
   "common_status": "Status",
   "common_code": "Código",
+  "common_add": "Adicionar",
   "common_description": "Descrição",
   "common_action_save": "Salvar",
   "common_action_cancel": "Cancelar",
@@ -71,5 +72,14 @@
   "person_guarantorNotes": "Avalistas",
   "person_assetNotes": "Bens",
   "person_authorizedNotes": "Autorizados",
-  "person_personCustomer": "Clientes"
+  "person_personCustomer": "Clientes",
+  "address_zipCode": "CEP",
+  "address_number": "Numero",
+  "address_neighborhood": "Bairro",
+  "address_complement": "Complemento",
+  "person_city": "Cidade",
+  "person_state": "UF",
+  "person_country": "País",
+  "address_typeAddress": "Tipo endereço",
+  "address_address": "Endereço"
 }

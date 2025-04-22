@@ -1,12 +1,16 @@
 import {FormGroup} from "@angular/forms";
 import {DatePipe} from "@angular/common";
+import {DataTable} from "../../../shared/components/datatable/datatable";
+import {ETypeRegistry} from "../../../shared/util/enums";
 
 export class PersonConfig {
+
+
 
   fields: any[] = [
     {
       "fieldName": "id",
-      "required": true,
+      "required": false,
       "hidden": false,
       "type": "string"
     },
@@ -451,7 +455,7 @@ export class PersonConfig {
       "fieldName": "personAddress",
       "required": false,
       "hidden": false,
-      "type": "object",
+      "type": "array",
       "fields": [
         {
           "fieldName": "id",
@@ -889,5 +893,98 @@ export class PersonConfig {
     }
     dto.personNatural.birthDate = datePipe.transform(dto.personNatural.birthDate, 'yyyy-MM-dd')!;
     return dto;
+  }
+
+  onConfigDatatable(type: ETypeRegistry): DataTable{
+    const configDataTable: DataTable = new DataTable();
+    configDataTable.enableSearch = false;
+    configDataTable.enableFilter = false;
+    configDataTable.enableRefresh = false;
+    configDataTable.enablePagginator = false
+    configDataTable.enablePrint = false;
+
+    switch (type) {
+      case ETypeRegistry.ADDRESS:
+        this.onSetColumnsAddress(configDataTable);
+        break;
+      case ETypeRegistry.PHONE:
+        this.onSetColumnsPhone(configDataTable);
+        break;
+      case ETypeRegistry.EMAIL:
+        this.onSetColumnsEmail(configDataTable);
+        break;
+    }
+
+    return configDataTable;
+  }
+
+  private onSetColumnsAddress(configDataTable: DataTable): void {
+    configDataTable.fields = [
+      {
+        field: "zipCode",
+        header: "CEP",
+        width: "10%"
+      },
+      {
+        field: "address",
+        header: "Endereço",
+        width: "40%"
+      },
+      {
+        field: "neighborhood",
+        header: "Bairro",
+        width: "10%"
+      },
+      {
+        field: "number",
+        header: "Numero",
+        width: "10%"
+      },
+      {
+        field: "typeAddress.value",
+        header: "Tipo",
+        width: "10%"
+      }
+    ];
+  }
+
+  private onSetColumnsPhone(configDataTable: DataTable): void {
+    configDataTable.fields = [
+      {
+        field: "phone",
+        header: "Numero",
+        width: "60%"
+      },
+      {
+        field: "notes",
+        header: "Observações",
+        width: "10%"
+      },
+      {
+        field: "type.value",
+        header: "Tipo",
+        width: "10%"
+      }
+    ];
+  }
+
+  private onSetColumnsEmail(configDataTable: DataTable): void {
+    configDataTable.fields = [
+      {
+        field: "email",
+        header: "Email",
+        width: "60%"
+      },
+      {
+        field: "notes",
+        header: "Observações",
+        width: "10%"
+      },
+      {
+        field: "type.value",
+        header: "Tipo",
+        width: "10%"
+      }
+    ];
   }
 }
