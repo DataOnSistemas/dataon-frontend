@@ -144,16 +144,28 @@ export class PersonComponent implements OnInit{
     })
   }
 
-  public openModal(type: ETypeRegistry, obj: any) {
+  onOpenAddress(obj: any): void {
+    this.openModal(ETypeRegistry.ADDRESS, obj, "person_address")
+  }
+
+  onOpenPhone(obj: any): void {
+    this.openModal(ETypeRegistry.PHONE, obj, "person_phone")
+  }
+
+  onOpenEmail(obj: any): void {
+    this.openModal(ETypeRegistry.EMAIL, obj, "person_email")
+  }
+
+  public openModal(type: ETypeRegistry, obj: any, header: string) {
     this.dialogRef = this.dialogService.open(this.onSetModal(type),
     {
-      header: "Endereços",
+      header: this.translateService.translate(header),
       width: '70vw',
       modal:true,
       closable: true,
       draggable: true,
       maximizable: false,
-      data: obj,
+      data: obj.data,
       baseZIndex: 999999,
     });
 

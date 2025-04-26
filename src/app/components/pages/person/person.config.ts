@@ -7,14 +7,6 @@ import {confirm, gender, maritalStatus, naturalPerson, status, taxPayer} from ".
 
 export class PersonConfig {
 
-
-  public _naturalPerson = naturalPerson;
-  public _maritalStatus = maritalStatus;
-  public _gender = gender;
-  public _confirm = confirm;
-  public _status = status;
-  public _taxPayer = taxPayer;
-
   fields: any[] = [
     {
       "fieldName": "id",
@@ -904,9 +896,17 @@ export class PersonConfig {
       dto.registrationDate = new Date();
     }
 
-    dto.personCustomer.status = dto.personCustomer.status["code"];
-    dto.personCustomer.allowSms = dto.personCustomer.allowSms["code"];
-    dto.personCustomer.allowEmail = dto.personCustomer.allowEmail["code"];
+    dto.personCustomer.status = dto.personCustomer?.status?.code;
+    dto.personCustomer.allowSms = dto.personCustomer?.allowSms?.code;
+    dto.personCustomer.allowEmail = dto.personCustomer?.allowEmail?.code;
+    dto.personCustomer.taxPayerType = dto.personCustomer?.taxPayerType?.code;
+    dto.personCustomer.issRetention = dto.personCustomer?.issRetention?.code;
+    dto.personCustomer.simpleNationalOpting = dto.personCustomer?.simpleNationalOpting?.code;
+
+
+    dto.personNatural.gender = dto.personNatural?.gender?.code;
+    dto.personNatural.maritalStatus = dto.personNatural?.maritalStatus?.code;
+    dto.personNatural.ruralProducer = dto.personNatural?.ruralProducer?.code;
 
     return dto;
   }
@@ -914,9 +914,18 @@ export class PersonConfig {
 
   convertDtoToFormGroup(formGroup: FormGroup, config: DynamicDialogConfig) {
 
+    config.data.typeNaturalPerson = naturalPerson.find(e => e.code === config.data.typeNaturalPerson);
     config.data.personCustomer.status = status.find(e => e.code === config.data.personCustomer.status);
     config.data.personCustomer.allowSms = confirm.find(e => e.code === config.data.personCustomer.allowSms);
     config.data.personCustomer.allowEmail = confirm.find(e => e.code === config.data.personCustomer.allowEmail);
+    config.data.personCustomer.taxPayerType = taxPayer.find(e => e.code === config.data.personCustomer.taxPayerType);
+    config.data.personCustomer.issRetention = confirm.find(e => e.code === config.data.personCustomer.issRetention);
+    config.data.personCustomer.simpleNationalOpting = confirm.find(e => e.code === config.data.personCustomer.simpleNationalOpting);
+
+    config.data.personNatural.gender = gender.find(e => e.code === config.data.personNatural.gender);
+    config.data.personNatural.maritalStatus = maritalStatus.find(e => e.code === config.data.personNatural.maritalStatus);
+    config.data.personNatural.ruralProducer = confirm.find(e => e.code === config.data.personNatural.ruralProducer);
+
     formGroup.patchValue(config.data);
   }
 

@@ -31,7 +31,6 @@ export class AddressComponent  implements OnInit{
     private readonly fieldsService: FieldsService,
     public readonly translateService: TranslateService,
     private readonly toastService: ToastService,
-    private route: ActivatedRoute,
     public readonly ref: DynamicDialogRef,
     public readonly config: DynamicDialogConfig,
   ) {
@@ -40,8 +39,7 @@ export class AddressComponent  implements OnInit{
 
   ngOnInit(): void {
     if(this.config.data){
-      this.config.data.status = status.find(e => e.code === this.config.data.status);
-      this.formGroup.patchValue(this.config.data);
+      this.configObj.convertDtoToFormGroup(this.formGroup, this.config)
     }
   }
 
