@@ -8,7 +8,15 @@ import {TranslateService} from "../../../shared/services/translate/translate.ser
 import {ActivatedRoute} from "@angular/router";
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {TabsModule} from "primeng/tabs";
-import {confirm, gender, maritalStatus, naturalPerson, status, taxPayer} from "../../../shared/util/constants";
+import {
+  confirm,
+  ETypePerson,
+  gender,
+  maritalStatus,
+  naturalPerson,
+  status,
+  taxPayer
+} from "../../../shared/util/constants";
 import {DatePipe} from "@angular/common";
 import {ImageUploadService} from "../../../shared/components/inputs/image-upload/image-upload.service";
 import {TableModule} from 'primeng/table';
@@ -51,7 +59,7 @@ export class PersonComponent implements OnInit{
   protected dataTableEmail: DataTable;
   // constants
   protected readonly ETypeRegistry = ETypeRegistry;
-  private _type: string = "COMPANY";
+  private _type: ETypePerson = ETypePerson.COMPANY;
   public _naturalPerson = naturalPerson;
   public _maritalStatus = maritalStatus;
   public _gender = gender;
@@ -101,22 +109,22 @@ export class PersonComponent implements OnInit{
 
     switch (context) {
       case 'personCompany':
-        this._type = 'COMPANY'
+        this._type = ETypePerson.COMPANY
         break;
       case 'personSupplier':
-        this._type = 'SUPPLIER'
+        this._type = ETypePerson.SUPPLIER
         break;
       case 'personCustomer':
-        this._type = 'CUSTOMER'
+        this._type = ETypePerson.CUSTOMER
         break;
       case 'personAccountant':
-        this._type = 'ACCOUNTANT'
+        this._type = ETypePerson.ACCOUNTANT
         break;
       case 'personSales':
-        this._type = 'SALESPERSON'
+        this._type = ETypePerson.SALESPERSON
         break;
       case 'personCarrier':
-        this._type = 'CARRIER'
+        this._type = ETypePerson.CARRIER
         break;
     }
   }
@@ -124,7 +132,7 @@ export class PersonComponent implements OnInit{
   @HostListener('document:keydown.enter', ['$event'])
   onSave() {
     if(this.formGroup.valid) {
-      this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup, this.datePipe));
+      this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup, this._type));
     }else {
       this.toastService.warn({summary: "Mensagem", detail: this.translateService.translate("common_message_invalid_fields")});
       this.fieldsService.verifyIsValid();
@@ -135,19 +143,8 @@ export class PersonComponent implements OnInit{
     this.ref.close(null);
   }
 
-  public onGetTokenImage(image: any): void {
+  onGetTokenImage(image: any): void {
     this.imageToken = image;
-  }
-
-  private onGetUrlImage(){
-    this.imageService.onRequestDonwload(this.imageToken).subscribe({
-      next: (res) => {
-        this.urlImage = res["url"];
-      },
-      error: error => {
-        this.toastService.error({summary: "Mensagem", detail: "Falha ao fazer download da imagem"});
-      }
-    })
   }
 
   onOpenAddress(obj: any): void {
@@ -189,7 +186,7 @@ export class PersonComponent implements OnInit{
     }
   }
 
-  public openModal(type: ETypeRegistry, obj: any, header: string) {
+  openModal(type: ETypeRegistry, obj: any, header: string) {
     this.dialogRef = this.dialogService.open(this.onSetModal(type),
     {
       header: this.translateService.translate(header),
@@ -249,7 +246,7 @@ export class PersonComponent implements OnInit{
     return type;
   }
 
-  onDelete(id: any, route: string): void {
+  private onDelete(id: any, route: string): void {
     this.loadingService.showLoading.next(true);
     this.crudService.onDelete(route,id).subscribe({
       next: (res) => {
@@ -259,5 +256,16 @@ export class PersonComponent implements OnInit{
         this.loadingService.showLoading.next(false);
       }
     });
+  }
+
+  private onGetUrlImage(){
+    this.imageService.onRequestDonwload(this.imageToken).subscribe({
+      next: (res) => {
+        this.urlImage = res["url"];
+      },
+      error: error => {
+        this.toastService.error({summary: "Mensagem", detail: "Falha ao fazer download da imagem"});
+      }
+    })
   }
 }

@@ -94,7 +94,15 @@ export const config: RegisterRoutes[] = [
     view: "personCustomer",
     route: "person",
     paramExtra: "CUSTOMER",
-    defaultFilter: "",
+    defaultFilter: "TypePerson*.typePerson eq CUSTOMER",
+    component: PersonComponent
+  },
+  {
+    header: "Empresa",
+    view: "personCompany",
+    route: "person",
+    paramExtra: "COMPANY",
+    defaultFilter: "TypePerson*.typePerson eq COMPANY",
     component: PersonComponent
   },
 ]

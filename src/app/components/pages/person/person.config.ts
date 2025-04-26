@@ -3,7 +3,15 @@ import {DatePipe} from "@angular/common";
 import {DataTable} from "../../../shared/components/datatable/datatable";
 import {ETypeRegistry} from "../../../shared/util/enums";
 import {DynamicDialogConfig} from "primeng/dynamicdialog";
-import {confirm, gender, maritalStatus, naturalPerson, status, taxPayer} from "../../../shared/util/constants";
+import {
+  confirm,
+  ETypePerson,
+  gender,
+  maritalStatus,
+  naturalPerson,
+  status,
+  taxPayer
+} from "../../../shared/util/constants";
 
 export class PersonConfig {
 
@@ -532,6 +540,28 @@ export class PersonConfig {
       ]
     },
     {
+      "fieldName": "personTypes",
+      "required": false,
+      "hidden": false,
+      "type": "array",
+      "fields": [
+        {
+          "fieldName": "id",
+          "required": true,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        },
+        {
+          "fieldName": "typePerson",
+          "required": true,
+          "hidden": false,
+          "type": "string",
+          "fields": []
+        }
+      ]
+    },
+    {
       "fieldName": "personTaxSettings",
       "required": false,
       "hidden": false,
@@ -879,7 +909,7 @@ export class PersonConfig {
 
 
 
-  convertFormGroupToDTO(formGroup: FormGroup, datePipe: DatePipe): any {
+  convertFormGroupToDTO(formGroup: FormGroup, type: ETypePerson): any {
      const dto = {
        id: formGroup.get('id')?.value,
        registrationDate: formGroup.get('registrationDate')?.value,
@@ -891,6 +921,7 @@ export class PersonConfig {
        personAddress: formGroup.get('personAddress')?.value,
        personEmail: formGroup.get('personEmail')?.value,
        personPhone: formGroup.get('personPhone')?.value,
+       typePerson: formGroup.get('typePerson')?.value,
     }
     if(!dto.id){
       dto.registrationDate = new Date();
@@ -903,13 +934,28 @@ export class PersonConfig {
     dto.personCustomer.issRetention = dto.personCustomer?.issRetention?.code;
     dto.personCustomer.simpleNationalOpting = dto.personCustomer?.simpleNationalOpting?.code;
 
-
     dto.personNatural.gender = dto.personNatural?.gender?.code;
     dto.personNatural.maritalStatus = dto.personNatural?.maritalStatus?.code;
     dto.personNatural.ruralProducer = dto.personNatural?.ruralProducer?.code;
 
+    this.onSetTypePerson(dto, type);
+
     return dto;
   }
+
+  private onSetTypePerson(dto: any, type: ETypePerson) {
+    let containsTypePerson = [];
+    if(dto.typePerson){
+      let containsTypePerson = dto?.typePerson.filter((e: any) => e.typePerson === type);
+    } else {
+      dto.typePerson = [];
+    }
+
+    if(!dto.id || containsTypePerson.length === 0){
+      dto.typePerson.push({typePerson: type});
+    }
+  }
+
 
 
   convertDtoToFormGroup(formGroup: FormGroup, config: DynamicDialogConfig) {

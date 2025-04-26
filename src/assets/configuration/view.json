@@ -204,5 +204,17 @@
         "width": "80%"
       }
     ]
+  },
+  {
+    "route": "personCompany",
+    "hash": "personCompany",
+    "filters": [],
+    "fields": [
+      {
+        "field": "name",
+        "header": "Nome",
+        "width": "80%"
+      }
+    ]
   }
 ]

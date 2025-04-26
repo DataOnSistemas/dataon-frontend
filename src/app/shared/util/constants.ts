@@ -64,3 +64,12 @@ export const typeContact = [
   { key: "MOBILE", value: "Pessoal", code: 2 },
   { key: "OUTHER", value: "Outro", code: 3 }
 ]
+
+export enum ETypePerson {
+  COMPANY = 0,
+  SUPPLIER = 1,
+  CUSTOMER = 2,
+  ACCOUNTANT = 3,
+  SALESPERSON = 4,
+  CARRIER = 5
+}

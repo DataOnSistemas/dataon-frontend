@@ -147,7 +147,7 @@ export class RegisterComponent implements OnInit  {
         this.onLoadData(obj.data.id);
       }
     } else{
-      this.onOpenModal(obj);
+      this.onOpenModal(null);
     }
   }
 

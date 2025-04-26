@@ -30,6 +30,10 @@ export class MenuItens {
             name: 'person',
             submenu: [
               {
+                route: "register/personCompany",
+                name: "personCompany"
+              },
+              {
                 route: "register/personCustomer",
                 name: "personCustomer"
               }
