@@ -84,6 +84,9 @@ export class PersonComponent implements OnInit{
 
     if(this.config.data){
       this.configObj.convertDtoToFormGroup(this.formGroup, this.config);
+      this.configObj.onSetEntityArrays(this.config,ETypeRegistry.ADDRESS, this.dataTableAddress);
+      this.configObj.onSetEntityArrays(this.config,ETypeRegistry.PHONE, this.dataTablePhone);
+      this.configObj.onSetEntityArrays(this.config,ETypeRegistry.EMAIL, this.dataTableEmail);
     }
   }
 

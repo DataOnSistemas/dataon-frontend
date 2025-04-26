@@ -917,11 +917,24 @@ export class PersonConfig {
     config.data.personCustomer.status = status.find(e => e.code === config.data.personCustomer.status);
     config.data.personCustomer.allowSms = confirm.find(e => e.code === config.data.personCustomer.allowSms);
     config.data.personCustomer.allowEmail = confirm.find(e => e.code === config.data.personCustomer.allowEmail);
-
     formGroup.patchValue(config.data);
   }
 
-  onConfigDatatable(type: ETypeRegistry): DataTable{
+  onSetEntityArrays(config: DynamicDialogConfig, type: ETypeRegistry,datatable: DataTable) {
+    switch (type) {
+      case ETypeRegistry.ADDRESS:
+        datatable.values = config.data.personAddress;
+        break;
+      case ETypeRegistry.PHONE:
+        datatable.values = config.data.personPhone;
+        break;
+      case ETypeRegistry.EMAIL:
+        datatable.values = config.data.personEmail;
+        break;
+    }
+  }
+
+  onConfigDatatable(type: ETypeRegistry): DataTable {
     const configDataTable: DataTable = new DataTable();
     configDataTable.enableSearch = false;
     configDataTable.enableFilter = false;
