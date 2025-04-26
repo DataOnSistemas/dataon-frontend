@@ -36,6 +36,22 @@ export class MenuItens {
               {
                 route: "register/personCustomer",
                 name: "personCustomer"
+              },
+              {
+                route: "register/personSupplier",
+                name: "personSupplier"
+              },
+              {
+                route: "register/personAccountant",
+                name: "personAccountant"
+              },
+              {
+                route: "register/personSalesPerson",
+                name: "personSalesPerson"
+              },
+              {
+                route: "register/personCarrier",
+                name: "personCarrier"
               }
             ]
           },

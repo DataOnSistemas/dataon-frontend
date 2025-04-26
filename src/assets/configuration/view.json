@@ -216,5 +216,53 @@
         "width": "80%"
       }
     ]
+  },
+  {
+    "route": "personSupplier",
+    "hash": "personSupplier",
+    "filters": [],
+    "fields": [
+      {
+        "field": "name",
+        "header": "Nome",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "personAccountant",
+    "hash": "personAccountant",
+    "filters": [],
+    "fields": [
+      {
+        "field": "name",
+        "header": "Nome",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "personSalesPerson",
+    "hash": "personSalesPerson",
+    "filters": [],
+    "fields": [
+      {
+        "field": "name",
+        "header": "Nome",
+        "width": "80%"
+      }
+    ]
+  },
+  {
+    "route": "personCarrier",
+    "hash": "personCarrier",
+    "filters": [],
+    "fields": [
+      {
+        "field": "name",
+        "header": "Nome",
+        "width": "80%"
+      }
+    ]
   }
 ]

@@ -105,6 +105,38 @@ export const config: RegisterRoutes[] = [
     defaultFilter: "TypePerson*.typePerson eq COMPANY",
     component: PersonComponent
   },
+  {
+    header: "Fornecedores",
+    view: "personSupplier",
+    route: "person",
+    paramExtra: "SUPPLIER",
+    defaultFilter: "TypePerson*.typePerson eq SUPPLIER",
+    component: PersonComponent
+  },
+  {
+    header: "Contadores",
+    view: "personAccountant",
+    route: "person",
+    paramExtra: "ACCOUNTANT",
+    defaultFilter: "TypePerson*.typePerson eq ACCOUNTANT",
+    component: PersonComponent
+  },
+  {
+    header: "Vendedores",
+    view: "personSalesPerson",
+    route: "person",
+    paramExtra: "SALESPERSON",
+    defaultFilter: "TypePerson*.typePerson eq SALESPERSON",
+    component: PersonComponent
+  },
+  {
+    header: "Transportadoras",
+    view: "personCarrier",
+    route: "person",
+    paramExtra: "CARRIER",
+    defaultFilter: "TypePerson*.typePerson eq CARRIER",
+    component: PersonComponent
+  },
 ]
 
 export class RegisterRoutes {
