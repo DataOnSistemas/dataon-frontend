@@ -18,6 +18,10 @@ import {DataTable} from "../../../shared/components/datatable/datatable";
 import {ETypeRegistry} from "../../../shared/util/enums";
 import {PhoneComponent} from "../../modal/phone/phone.component";
 import {EmailComponent} from "../../modal/email/email.component";
+import {CrudService} from "../../../shared/services/crud/crud.service";
+import {RequestData} from "../../../shared/components/request-data";
+import {LoadingService} from "../../../shared/services/loading/loading.service";
+import e from "express";
 
 @Component({
   selector: 'app-person',
@@ -69,7 +73,9 @@ export class PersonComponent implements OnInit{
     private datePipe: DatePipe,
     private imageService: ImageUploadService,
     private readonly dialogService: DialogService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private crudService: CrudService,
+    private loadingService: LoadingService
   ) {
     this.formGroup = this.fieldsService.onCreateFormBuiderDynamic(this.configObj.fields);
     this.dataTableAddress = this.configObj.onConfigDatatable(ETypeRegistry.ADDRESS);
@@ -145,15 +151,42 @@ export class PersonComponent implements OnInit{
   }
 
   onOpenAddress(obj: any): void {
-    this.openModal(ETypeRegistry.ADDRESS, obj, "person_address")
+    if(obj.action === 0){
+      if(obj.data.id){
+        this.onDelete(obj.data.id,"personAddress");
+        this.dataTableAddress.values = this.dataTableAddress.values.filter(e => e.id !== obj.data.id);
+      } else {
+        this.dataTableAddress.values = this.dataTableAddress.values.filter(e => e.address !== obj.data.address);
+      }
+    } else {
+      this.openModal(ETypeRegistry.ADDRESS, obj, "address_address")
+    }
   }
 
   onOpenPhone(obj: any): void {
-    this.openModal(ETypeRegistry.PHONE, obj, "person_phone")
+    if(obj.action === 0){
+      if(obj.data.id){
+        this.onDelete(obj.data.id,"personPhone");
+        this.dataTablePhone.values = this.dataTablePhone.values.filter(e => e.id !== obj.data.id);
+      } else {
+        this.dataTablePhone.values = this.dataTablePhone.values.filter(e => e.phone !== obj.data.phone);
+      }
+    } else {
+      this.openModal(ETypeRegistry.PHONE, obj, "phone");
+    }
   }
 
   onOpenEmail(obj: any): void {
-    this.openModal(ETypeRegistry.EMAIL, obj, "person_email")
+    if(obj.action === 0){
+      if(obj.data.id){
+        this.onDelete(obj.data.id,"personEmail");
+        this.dataTableEmail.values = this.dataTableEmail.values.filter(e => e.id !== obj.data.id);
+      } else {
+        this.dataTableEmail.values = this.dataTableEmail.values.filter(e => e.email !== obj.data.email);
+      }
+    } else {
+      this.openModal(ETypeRegistry.EMAIL, obj, "email")
+    }
   }
 
   public openModal(type: ETypeRegistry, obj: any, header: string) {
@@ -174,15 +207,24 @@ export class PersonComponent implements OnInit{
         switch (type) {
           case ETypeRegistry.PHONE:
             (this.formGroup.get('personPhone') as FormArray).push(data);
-            this.dataTablePhone.values = this.formGroup.get('personPhone')?.value;
+            if(obj.action === 1){
+              this.dataTablePhone.values = this.dataTablePhone.values.filter(e => e.id !== data.value.id);
+            }
+            this.dataTablePhone.values.push(data.value);
             break;
           case ETypeRegistry.ADDRESS:
             (this.formGroup.get('personAddress') as FormArray).push(data);
-            this.dataTableAddress.values = this.formGroup.get('personAddress')?.value;
+            if(obj.action === 1){
+              this.dataTableAddress.values = this.dataTableAddress.values.filter(e => e.id !== data.value.id);
+            }
+            this.dataTableAddress.values.push(data.value);
             break;
           case ETypeRegistry.EMAIL:
             (this.formGroup.get('personEmail') as FormArray).push(data);
-            this.dataTableEmail.values = this.formGroup.get('personEmail')?.value;
+            if(obj.action === 1){
+              this.dataTableEmail.values = this.dataTableEmail.values.filter(e => e.id !== data.value.id);
+            }
+            this.dataTableEmail.values.push(data.value);
             break;
         }
       }
@@ -205,5 +247,17 @@ export class PersonComponent implements OnInit{
     }
 
     return type;
+  }
+
+  onDelete(id: any, route: string): void {
+    this.loadingService.showLoading.next(true);
+    this.crudService.onDelete(route,id).subscribe({
+      next: (res) => {
+        this.loadingService.showLoading.next(false);
+      },
+      error: (err) => {
+        this.loadingService.showLoading.next(false);
+      }
+    });
   }
 }

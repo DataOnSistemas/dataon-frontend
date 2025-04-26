@@ -1,4 +1,4 @@
-import {FormGroup} from "@angular/forms";
+import {FormArray, FormGroup} from "@angular/forms";
 import {DatePipe} from "@angular/common";
 import {DataTable} from "../../../shared/components/datatable/datatable";
 import {ETypeRegistry} from "../../../shared/util/enums";
@@ -1035,6 +1035,5 @@ export class PersonConfig {
       }
     ];
   }
-
 
 }

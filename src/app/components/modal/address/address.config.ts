@@ -19,7 +19,7 @@ export class AddressConfig {
     },
     {
       "fieldName": "typeAddress",
-      "required": false,
+      "required": true,
       "hidden": false,
       "type": "string"
     },

@@ -90,7 +90,8 @@
   "person_country": "País",
   "address_typeAddress": "Tipo endereço",
   "address_address": "Endereço",
-  "phone": "Telefone"
+  "phone": "Telefone",
+  "email": "E-mail"
 
 
 }
