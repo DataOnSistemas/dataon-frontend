@@ -42,7 +42,7 @@ export const appConfig: ApplicationConfig = {
         preset: CustomTheme,
         options: {
           prefix: 'p',
-          darkModeSelector: false,
+          darkModeSelector: '.app-dark',
           cssLayer: false,
           ripple: true,
           dark: true,

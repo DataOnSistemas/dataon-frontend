@@ -1,13 +1,13 @@
 
 export const theme = [
-  { key: "DARK", value: "Escuro" },
-  { key: "LIGHT", value: "Claro" }
+  { key: "DARK", value: "Escuro", code: 0 },
+  { key: "LIGHT", value: "Claro", code: 1 }
 ]
 
 export const language = [
-  { key: "PORTUGUESE", value: "Português" },
-  { key: "ENGLISH", value: "Inglês" },
-  { key: "SPANISH", value: "Espanhol" }
+  { key: "PORTUGUESE", value: "Português", code: 0  },
+  { key: "ENGLISH", value: "Inglês", code: 1 },
+  { key: "SPANISH", value: "Espanhol", code: 2 },
 ]
 
 export const languages: any = {
@@ -73,3 +73,5 @@ export enum ETypePerson {
   SALESPERSON = 4,
   CARRIER = 5
 }
+
+export let themeDark = false;

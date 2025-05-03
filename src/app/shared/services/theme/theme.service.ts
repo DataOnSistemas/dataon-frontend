@@ -1,5 +1,5 @@
 import {Injectable, Renderer2, RendererFactory2} from '@angular/core';
-import {environment} from "../../../../environments/environment";
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,14 @@ export class ThemeService {
   }
 
   onConfigurationTheme(theme: string): void {
-    if(theme === 'DARK'){
-
-    } else {
-
+    const element = document.querySelector('html');
+    if(element != null) {
+      if(theme === 'DARK'){
+        element.classList.toggle('app-dark');
+      } else {
+        element.classList.remove('app-dark');
+      }
     }
+
   }
 }

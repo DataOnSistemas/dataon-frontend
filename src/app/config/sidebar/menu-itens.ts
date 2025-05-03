@@ -115,7 +115,7 @@ export class MenuItens {
         submenu: [
           {
             name: 'Configurações do usuário',
-            route:'configuration'
+            route:'user-configuration'
           },
           {
             name: 'Configurações do globais',

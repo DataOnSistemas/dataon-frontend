@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {CookiesService} from "../cookies/cookies.service";
 import {RequestData} from "../../shared/components/request-data";
+import {EnumCookie} from "../cookies/cookie.enum";
 
 @Injectable({
   providedIn: 'root'

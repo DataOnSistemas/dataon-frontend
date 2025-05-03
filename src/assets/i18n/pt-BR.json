@@ -96,7 +96,8 @@
   "address_typeAddress": "Tipo endereço",
   "address_address": "Endereço",
   "phone": "Telefone",
-  "email": "E-mail"
+  "email": "E-mail",
+  "user_configuration": "Configurações do usuário"
 
 
 }

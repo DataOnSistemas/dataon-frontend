@@ -72,11 +72,12 @@ export class UserConfigurationComponent implements OnInit {
     this.loadingService.showLoading.next(true);
     this.userConfigurationService.getUser().subscribe({
       next: (res) => {
-        res.output.theme = this._theme.find(e => e.key === res.output.theme);
-        res.output.lang = this._language.find(e => e.key === res.output.lang);
+        res.output.theme = this._theme.find(e => e.code === res.output.theme);
+        res.output.lang = this._language.find(e => e.code === res.output.lang);
         this.imageToken = res.output.userPhoto;
         this.formGroup.patchValue(res.output);
         //this.onGetUrlImage();
+        this.loadingService.showLoading.next(false);
       },
       error: (err) => {
         this.loadingService.showLoading.next(false);
