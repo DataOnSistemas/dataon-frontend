@@ -24,7 +24,7 @@ export const routes: Routes = [
       { path: 'configuration', component: ConfigurationComponent },
       { path: 'register/:hash', component: RegisterComponent },
       { path: 'user-configuration', component: UserConfigurationComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'service', pathMatch: 'full' },
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

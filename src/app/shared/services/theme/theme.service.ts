@@ -6,10 +6,6 @@ import {Injectable, Renderer2, RendererFactory2} from '@angular/core';
 })
 export class ThemeService {
 
-  constructor(rendererFactory: RendererFactory2) {
-
-  }
-
   onConfigurationTheme(theme: string): void {
     const element = document.querySelector('html');
     if(element != null) {
@@ -19,6 +15,5 @@ export class ThemeService {
         element.classList.remove('app-dark');
       }
     }
-
   }
 }
