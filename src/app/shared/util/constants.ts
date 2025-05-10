@@ -65,6 +65,11 @@ export const typeContact = [
   { key: "OUTHER", value: "Outro", code: 3 }
 ]
 
+export const typeTree = [
+  { key: "ANALYTICAL", value: "Analítico", code: 0 },
+  { key: "SYNTHETIC", value: "Sintético", code: 1 },
+]
+
 export enum ETypePerson {
   COMPANY = 0,
   SUPPLIER = 1,

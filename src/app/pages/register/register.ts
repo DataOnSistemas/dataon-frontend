@@ -5,6 +5,9 @@ import {CfopComponent} from "../../components/pages/cfop/cfop.component";
 import {CnaeComponent} from "../../components/pages/cnae/cnae.component";
 import {NcmComponent} from "../../components/pages/ncm/ncm.component";
 import {PersonComponent} from "../../components/pages/person/person.component";
+import {
+  ProductStorageLocationsComponent
+} from "../../components/pages/product-storage-locations/product-storage-locations.component";
 
 
 export const config: RegisterRoutes[] = [
@@ -136,6 +139,15 @@ export const config: RegisterRoutes[] = [
     paramExtra: "CARRIER",
     defaultFilter: "TypePerson*.typePerson eq CARRIER",
     component: PersonComponent
+  },
+  {
+    header: "Locais de armazenamento",
+    view: "productsStorageLocations",
+    route: "productsStorageLocations",
+    paramExtra: "",
+    defaultFilter: "",
+    component: ProductStorageLocationsComponent,
+    loadComponent: () => import('../../components/pages/product-storage-locations/product-storage-locations.component').then(m => m.ProductStorageLocationsComponent)
   },
 ]
 

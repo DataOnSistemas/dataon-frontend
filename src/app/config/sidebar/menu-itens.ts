@@ -56,6 +56,15 @@ export class MenuItens {
             ]
           },
           {
+            name: 'product',
+            submenu: [
+              {
+                route: "register/productsStorageLocations",
+                name: "productsStorageLocations"
+              },
+            ]
+          },
+          {
             name: "general",
             submenu: [
               {

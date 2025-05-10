@@ -264,5 +264,24 @@
         "width": "80%"
       }
     ]
+  },
+  {
+    "route": "productsStorageLocations",
+    "hash": "productsStorageLocations",
+    "treeTable": true,
+    "parentObjectName": "children",
+    "filters": [],
+    "fields": [
+      {
+        "field": "specificCode",
+        "header": "Codigo arvore",
+        "width": "20%"
+      },
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "60%"
+      }
+    ]
   }
 ]

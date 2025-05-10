@@ -26,6 +26,7 @@
   "personAccountant": "Contadores",
   "personSalesPerson": "Vendedores",
   "personCarrier": "Transportadoras",
+  "productsStorageLocations": "Locais de armazenamento",
   "media": "Midias",
   "fiscal": "Fiscal",
   "taxRegime": "Regime de tributação",
@@ -97,7 +98,10 @@
   "address_address": "Endereço",
   "phone": "Telefone",
   "email": "E-mail",
-  "user_configuration": "Configurações do usuário"
-
-
+  "user_configuration": "Configurações do usuário",
+  "product": "Produtos",
+  "product_store_location_specificCode": "Codigo específico",
+  "user": "Usuário",
+  "user_theme": "Tema",
+  "user_language": "Linguagem"
 }

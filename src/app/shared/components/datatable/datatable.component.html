@@ -60,7 +60,7 @@
           dropdownAppendTo="body"/>
       </div>
     </div>
-    <div class="table">
+    <div *ngIf="!isTreetable" class="table">
         <p-table
             [columns]="config.fields"
             [value]="config.values"
@@ -128,6 +128,75 @@
                 </tr>
             </ng-template>
         </p-table>
+    </div>
+    <div *ngIf="isTreetable">
+      <p-treeTable
+        [value]="config.treeValues"
+        [columns]="config.fields"
+        [rows]="10"
+        styleClass="p-datatable-sm"
+        [dataKey]="'id'"
+        [autoLayout]="true"
+        (onPage)="pageChange($event)"
+        [rowsPerPageOptions]="[10, 20, 50]"
+        [tableStyle]="{'min-width':'50rem'}">
+        <ng-template pTemplate="caption">
+          <div class="flex">
+            <p-iconField iconPosition="left" class="ml-auto">
+              <p-inputIcon>
+                <i class="pi pi-search"></i>
+              </p-inputIcon>
+              <input
+                pInputText
+                type="text"
+                placeholder="Buscar" />
+            </p-iconField>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th  [style]="'width:' + col.width " *ngFor="let col of columns">
+              {{ col.header }}
+            </th>
+            <th style="width: 18%;">
+              Ações
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+          <tr [ttRow]="rowNode">
+            <td *ngFor="let col of columns; let i = index">
+              <p-treeTableToggler [rowNode]="rowNode" *ngIf="i === 0" />
+              {{ rowData[col.field] }}
+            </td>
+            <td style="width: 18%;">
+              <button
+                style="margin-right: 5px;"
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-plus"
+                (click)="onRegisterDataTree(rowData,2,rowNode)">
+              </button>
+              <button
+                style="margin-right: 5px;"
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-pencil"
+                (click)="onRegisterDataTree(rowData, 1,rowNode)">
+              </button>
+              <button
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-trash"
+                (click)="onDeleteData(rowData, 0)">
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-treeTable>
     </div>
 </div>
 <div class="filter">

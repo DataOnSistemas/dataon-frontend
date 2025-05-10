@@ -13,6 +13,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { TranslateService } from '../../services/translate/translate.service';
 import {RequestData} from "../request-data";
+import {TreeTableModule} from "primeng/treetable";
 
 
 export enum Action {
@@ -34,7 +35,8 @@ export enum Action {
     InputIconModule,
     InputTextModule,
     PaginatorModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    TreeTableModule
   ],
   providers: [
     ConfirmationService,
@@ -48,9 +50,13 @@ export class DatatableComponent {
   selectedItem: any;
   sidebarVisible: boolean = false;
   @Input() config: DataTable = new DataTable();
+  @Input() isTreetable: boolean = false;
+  @Input() parentObjectName: string = "";
 
   @Output() onRegister: EventEmitter<any> = new EventEmitter();
   @Output() onRefresh: EventEmitter<RequestData> = new EventEmitter();
+
+
 
   constructor(
     private confirmationService: ConfirmationService,
@@ -97,6 +103,25 @@ export class DatatableComponent {
       data: item,
       action: action
     }
+    this.onRegister.emit(obj);
+  }
+
+  onRegisterDataTree(item: any, action: Action, rowNode: any) {
+    let obj = {
+      data: item,
+      action: action,
+      parent: null
+    }
+    if(obj.action === 1){
+      //obj.data[this.parentObjectName] = (rowNode.parent === null ? null : rowNode.parent.data);
+      obj.data.action = action;
+      obj.parent = (rowNode.parent === null ? null : rowNode.parent.data);
+      if(obj.parent && obj.parent[this.parentObjectName])
+        delete obj.parent[this.parentObjectName];
+    } else if(obj.action === 2) {
+      obj.parent = rowNode.node.data;
+    }
+
     this.onRegister.emit(obj);
   }
 

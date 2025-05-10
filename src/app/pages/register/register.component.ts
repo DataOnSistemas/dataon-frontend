@@ -35,6 +35,8 @@ export class RegisterComponent implements OnInit  {
   routeComponent: string | null = "";
   configuration: RegisterRoutes = new RegisterRoutes();
   originalClose: any;
+  isTreetable: boolean = false;
+  parentObjectName: string = "";
 
   constructor(
       private readonly activatedRoute: ActivatedRoute,
@@ -57,6 +59,10 @@ export class RegisterComponent implements OnInit  {
   onSetPropertiesDatatable(obj: any): void  {
     this.configuration = config.filter(e => e.view === obj.hash)[0];
     this.datatable.fields = obj.fields;
+    if(obj.treeTable){
+      this.isTreetable = obj.treeTable;
+      this.parentObjectName = obj.parentObjectName;
+    }
     this.onLoadAllData(new RequestData());
   }
 
@@ -69,6 +75,11 @@ export class RegisterComponent implements OnInit  {
         this.datatable.totalRecords = res.total;
         this.datatable.page = res.offset;
         this.datatable.size = res.size;
+        if(this.isTreetable){
+          // é necessário melhorar isso, ainda é muito sensivel a falhas
+          // mudar a forma urgente
+          this.datatable.treeValues = this.onLoadChildren(res.contents).filter(e => e.data.specificCode.length == 1);
+        }
         this.loadingService.showLoading.next(false);
       },
       error: (err) => {
@@ -77,11 +88,16 @@ export class RegisterComponent implements OnInit  {
     });
   }
 
-  onLoadData(id: any): void {
+  onLoadData(id: any, obj: any): void {
     this.loadingService.showLoading.next(true);
     this.crudService.onGet(this.configuration.route,id).subscribe({
       next: (res) => {
         this.loadingService.showLoading.next(false);
+        //aqui devo colocar o pai, mas será que pro C# precisa?
+        if(this.isTreetable){
+          res.parent = obj.parent;
+          res.action = obj.action;
+        }
         this.onOpenModal(res);
       },
       error: (err) => {
@@ -144,7 +160,13 @@ export class RegisterComponent implements OnInit  {
       if(obj.action === 0){// delete data
         this.onDelete(obj.data.id);
       } else {
-        this.onLoadData(obj.data.id);
+        if(this.isTreetable && obj.action === 2){
+          this.onOpenModal(obj);
+        } else {
+          // quando edita, tenho que mandar a porra do parent tbm
+          this.onLoadData(obj.data.id, obj);
+        }
+
       }
     } else{
       this.onOpenModal(null);
@@ -197,5 +219,32 @@ export class RegisterComponent implements OnInit  {
     var filter = this.configuration.defaultFilter;
     requestData.filter = filter + requestData.filter;
     return requestData;
+  }
+
+  /**
+   * esse método é super importante, pois é aqui que
+   * é montado a arvore, muito cuidado ao alterar, se não quebra tudo
+   * O parentObjectName deve conter certinho o nome do campo
+   * onde contem os filhos
+   * @param obj
+   */
+  onLoadChildren(obj: any[]): any[] {
+    var tree: any[] = [];
+    obj.forEach(item => {
+      var data:{data: any, children: any[]} = {
+        data: item,
+        children: []
+      }
+      if(item[this.parentObjectName] && item[this.parentObjectName].length === 0){
+        data.children = item[this.parentObjectName];
+        tree.push(data);
+      }
+      else {
+        data.children = this.onLoadChildren(item[this.parentObjectName]);
+        tree.push(data);
+      }
+
+    });
+    return tree;
   }
 }
