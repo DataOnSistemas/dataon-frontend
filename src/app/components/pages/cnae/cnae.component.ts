@@ -40,7 +40,6 @@ export class CnaeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const segments = this.route.snapshot.url;
     if(this.config.data){
       this.config.data.status = status.find(e => e.code === this.config.data.status);
       this.formGroup.patchValue(this.config.data);

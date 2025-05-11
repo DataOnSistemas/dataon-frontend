@@ -2,32 +2,29 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {SharedCommonModule} from "../../../shared/common/shared-common.module";
 import {ToastService} from "../../../services/toast/toast.service";
 import {FormGroup} from "@angular/forms";
-import {CfopConfig} from "../cfop/cfop.config";
-import {ProductStorageLocationsConfig} from "./product-storage-locations.config";
+import {ProductStorageLocationsConfig} from "../product-storage-locations/product-storage-locations.config";
+import {ProductBrandsConfg} from "./product-brands.confg";
 import {FieldsService} from "../../../shared/services/fields/fields.service";
 import {TranslateService} from "../../../shared/services/translate/translate.service";
 import {ActivatedRoute} from "@angular/router";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
-import {confirm, status, typeTree} from "../../../shared/util/constants";
+import {status} from "../../../shared/util/constants";
 
 @Component({
-  selector: 'app-product-storage-locations',
+  selector: 'app-product-brands',
   imports: [
     SharedCommonModule
   ],
   providers: [
     ToastService
   ],
-  templateUrl: './product-storage-locations.component.html',
-  styleUrl: './product-storage-locations.component.scss'
+  templateUrl: './product-brands.component.html',
+  styleUrl: './product-brands.component.scss'
 })
-export class ProductStorageLocationsComponent implements OnInit {
+export class ProductBrandsComponent implements OnInit {
 
   public formGroup: FormGroup;
-  protected configObj: ProductStorageLocationsConfig = new ProductStorageLocationsConfig();
-
-  _treeType = typeTree;
-  _parent: any = {}
+  protected configObj: ProductBrandsConfg = new ProductBrandsConfg();
 
   constructor(
     private readonly fieldsService: FieldsService,
@@ -41,22 +38,17 @@ export class ProductStorageLocationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.config.data) {
-      this.config.data.type = this._treeType.find(e => e.code === this.config.data.type);
-      if(this.config.data.action !== 2) {
-        this.formGroup.patchValue(this.config.data);
 
-      }
-      if(this.config.data.parent && this.config.data.parent.id) {
-        this._parent = this.config.data.parent;
-      }
+    if(this.config.data){
+      this.formGroup.patchValue(this.config.data);
     }
   }
+
 
   @HostListener('document:keydown.enter', ['$event'])
   onSave() {
     if(this.formGroup.valid) {
-      this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup, this._parent));
+      this.ref.close(this.configObj.convertFormGroupToDTO(this.formGroup));
     }else {
       this.toastService.warn({summary: "Mensagem", detail: this.translateService.translate("common_message_invalid_fields")});
       this.fieldsService.verifyIsValid();
@@ -66,4 +58,5 @@ export class ProductStorageLocationsComponent implements OnInit {
   onCancel() {
     this.ref.close(null);
   }
+
 }

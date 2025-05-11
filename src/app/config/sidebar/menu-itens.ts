@@ -62,6 +62,10 @@ export class MenuItens {
                 route: "register/productsStorageLocations",
                 name: "productsStorageLocations"
               },
+              {
+                route: "register/productsBrands",
+                name: "productsBrands"
+              },
             ]
           },
           {

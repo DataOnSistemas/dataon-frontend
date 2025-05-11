@@ -283,5 +283,17 @@
         "width": "60%"
       }
     ]
+  },
+  {
+    "route": "productsBrands",
+    "hash": "productsBrands",
+    "filters": [],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "80%"
+      }
+    ]
   }
 ]

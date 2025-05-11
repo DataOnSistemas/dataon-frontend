@@ -8,6 +8,7 @@ import {PersonComponent} from "../../components/pages/person/person.component";
 import {
   ProductStorageLocationsComponent
 } from "../../components/pages/product-storage-locations/product-storage-locations.component";
+import {ProductBrandsComponent} from "../../components/pages/product-brands/product-brands.component";
 
 
 export const config: RegisterRoutes[] = [
@@ -148,6 +149,14 @@ export const config: RegisterRoutes[] = [
     defaultFilter: "",
     component: ProductStorageLocationsComponent,
     loadComponent: () => import('../../components/pages/product-storage-locations/product-storage-locations.component').then(m => m.ProductStorageLocationsComponent)
+  },
+  {
+    header: "Unidades de medidas",
+    view: "productsBrands",
+    route: "productsBrands",
+    paramExtra: "",
+    defaultFilter: "",
+    component: ProductBrandsComponent
   },
 ]
 
