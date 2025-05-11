@@ -1,0 +1,24 @@
+<div [formGroup]="formGroup">
+  <div class="formgrid grid">
+    <app-input-text
+      formControlName="description"
+      name="description"
+      [field]="formGroup"
+      class="field col-12 md:col-12 c-margin"
+      [label]="translateService.translate('common_description')"
+      type="text">
+    </app-input-text>
+    <app-input-text
+      formControlName="abbreviation"
+      name="abbreviation"
+      [field]="formGroup"
+      class="field col-12 md:col-12 c-margin"
+      [label]="translateService.translate('common_abbreviation')"
+      type="text">
+    </app-input-text>
+  </div>
+</div>
+<div class="buttons">
+  <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
+  <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
+</div>

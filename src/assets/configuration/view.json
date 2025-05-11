@@ -295,5 +295,22 @@
         "width": "80%"
       }
     ]
+  },
+  {
+    "route": "productsUnits",
+    "hash": "productsUnits",
+    "filters": [],
+    "fields": [
+      {
+        "field": "description",
+        "header": "Descrição",
+        "width": "70%"
+      },
+      {
+        "field": "abbreviation",
+        "header": "Descrição",
+        "width": "10%"
+      }
+    ]
   }
 ]
