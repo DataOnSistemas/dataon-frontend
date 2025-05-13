@@ -1,28 +1,28 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {SharedCommonModule} from "../../../shared/common/shared-common.module";
-import {ToastService} from "../../../services/toast/toast.service";
 import {FormGroup} from "@angular/forms";
-import {ProductStorageLocationsConfig} from "./product-storage-locations.config";
+import {typeTree} from "../../../shared/util/constants";
 import {FieldsService} from "../../../shared/services/fields/fields.service";
 import {TranslateService} from "../../../shared/services/translate/translate.service";
+import {ToastService} from "../../../services/toast/toast.service";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
-import {typeTree} from "../../../shared/util/constants";
+import {CostProfitCenterConfig} from "./cost-profit-center.config";
+import {SharedCommonModule} from "../../../shared/common/shared-common.module";
 
 @Component({
-  selector: 'app-product-storage-locations',
+  selector: 'app-cost-profit-center',
   imports: [
     SharedCommonModule
   ],
   providers: [
     ToastService
   ],
-  templateUrl: './product-storage-locations.component.html',
-  styleUrl: './product-storage-locations.component.scss'
+  templateUrl: './cost-profit-center.component.html',
+  styleUrl: './cost-profit-center.component.scss'
 })
-export class ProductStorageLocationsComponent implements OnInit {
+export class CostProfitCenterComponent implements OnInit {
 
   public formGroup: FormGroup;
-  protected configObj: ProductStorageLocationsConfig = new ProductStorageLocationsConfig();
+  protected configObj: CostProfitCenterConfig = new CostProfitCenterConfig();
 
   _treeType = typeTree;
   _parent: any = {}

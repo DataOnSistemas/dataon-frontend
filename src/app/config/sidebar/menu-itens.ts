@@ -59,6 +59,10 @@ export class MenuItens {
             name: 'product',
             submenu: [
               {
+                route: "register/productGroupSubgroup",
+                name: "productGroupSubgroup"
+              },
+              {
                 route: "register/productsStorageLocations",
                 name: "productsStorageLocations"
               },
@@ -69,6 +73,15 @@ export class MenuItens {
               {
                 route: "register/productsUnits",
                 name: "productsUnits"
+              },
+            ]
+          },
+          {
+            name: 'financial',
+            submenu: [
+              {
+                route: "register/costProfitCenter",
+                name: "costProfitCenter"
               },
             ]
           },

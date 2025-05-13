@@ -230,6 +230,9 @@ export class RegisterComponent implements OnInit  {
    */
   onLoadChildren(obj: any[]): any[] {
     var tree: any[] = [];
+    if(!obj){
+      return tree;
+    }
     obj.forEach(item => {
       var data:{data: any, children: any[]} = {
         data: item,

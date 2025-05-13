@@ -10,6 +10,10 @@ import {
 } from "../../components/pages/product-storage-locations/product-storage-locations.component";
 import {ProductBrandsComponent} from "../../components/pages/product-brands/product-brands.component";
 import {ProductUnitsComponent} from "../../components/pages/product-units/product-units.component";
+import {
+  ProductGroupSubgroupComponent
+} from "../../components/pages/product-group-subgroup/product-group-subgroup.component";
+import {CostProfitCenterComponent} from "../../components/pages/cost-profit-center/cost-profit-center.component";
 
 
 export const config: RegisterRoutes[] = [
@@ -166,6 +170,24 @@ export const config: RegisterRoutes[] = [
     paramExtra: "",
     defaultFilter: "",
     component: ProductUnitsComponent
+  },
+  {
+    header: "Produto grupo/subgrupo",
+    view: "productsStorageLocations",
+    route: "productsStorageLocations",
+    paramExtra: "",
+    defaultFilter: "",
+    component: ProductGroupSubgroupComponent,
+    loadComponent: () => import('../../components/pages/product-group-subgroup/product-group-subgroup.component').then(m => m.ProductGroupSubgroupComponent)
+  },
+  {
+    header: "Centro de custo/lucro",
+    view: "costProfitCenter",
+    route: "costProfitCenter",
+    paramExtra: "",
+    defaultFilter: "",
+    component: CostProfitCenterComponent,
+    loadComponent: () => import('../../components/pages/cost-profit-center/cost-profit-center.component').then(m => m.CostProfitCenterComponent)
   },
 ]
 
