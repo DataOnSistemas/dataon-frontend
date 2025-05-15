@@ -17,6 +17,8 @@ import {DropdownComponent} from "../components/inputs/dropdown/dropdown.componen
 import {InputTextComponent} from "../components/inputs/input-text/input-text.component";
 import {LoadingComponent} from "../loading/loading.component";
 import {FloatLabelModule} from "primeng/floatlabel";
+import {TableInlineComponent} from "../components/table-inline/table-inline.component";
+import {DialogComponent} from "../components/dialog/dialog.component";
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {FloatLabelModule} from "primeng/floatlabel";
     InputDateComponent,
     InputMaskComponent,
     InputNumberComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    TableInlineComponent,
+    DialogComponent
   ],
   exports: [
     CommonModule,
@@ -51,7 +55,9 @@ import {FloatLabelModule} from "primeng/floatlabel";
     InputDateComponent,
     InputMaskComponent,
     InputNumberComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    TableInlineComponent,
+    DialogComponent
   ]
 })
 export class SharedCommonModule { }

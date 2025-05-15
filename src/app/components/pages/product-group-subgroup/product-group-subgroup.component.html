@@ -1,1 +1,69 @@
-<p>product-group-subgroup works!</p>
+<div [formGroup]="formGroup">
+  <div class="person-members formgrid grid">
+    <app-input-text
+      formControlName="specificCode"
+      name="specificCode"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('product_store_location_specificCode')"
+      type="text">
+    </app-input-text>
+    <app-dropdown
+      formControlName="type"
+      name="type"
+      [field]="formGroup"
+      [label]="translateService.translate('common_type')"
+      [options]="_treeType"
+      optionLabel="value"
+      class="field col-12 md:col-6 c-margin">
+    </app-dropdown>
+    <app-input-text
+      formControlName="description"
+      name="description"
+      [field]="formGroup"
+      class="field col-12 md:col-12 c-margin"
+      [label]="translateService.translate('common_description')"
+      type="text">
+    </app-input-text>
+    <app-input-number
+      formControlName="loyaltyPercentage"
+      name="loyaltyPercentage"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('productGroupSubgroup_loyaltyPercentage')"
+      type="text">
+    </app-input-number>
+    <app-input-number
+      formControlName="profitMargin"
+      name="profitMargin"
+      [field]="formGroup"
+      class="field col-12 md:col-6 c-margin"
+      [label]="translateService.translate('productGroupSubgroup_profitMargin')"
+      type="text">
+    </app-input-number>
+    <app-auto-complete
+      formControlName="costCenterManagementId"
+      name="costCenterManagementId"
+      [field]="formGroup"
+      route="costProfitCenter"
+      optionLabel="description"
+      class="field col-12 md:col-12 c-margin"
+      [label]="translateService.translate('productGroupSubgroup_profitMargin')"
+      type="text">
+    </app-auto-complete>
+    <p-button  [label]="translateService.translate('common_action_save')"  (onClick)="_visibleDialog = true"/>
+  </div>
+</div>
+<div class="buttons">
+  <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
+  <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
+</div>
+<app-dialog
+  [visible]="_visibleDialog"
+  title="Comissionamento">
+
+  <div class="flex justify-end gap-2">
+    <p-button label="Cancel" severity="secondary" (click)="_visibleDialog = false" />
+    <p-button label="Salvar" />
+  </div>
+</app-dialog>

@@ -173,8 +173,8 @@ export const config: RegisterRoutes[] = [
   },
   {
     header: "Produto grupo/subgrupo",
-    view: "productsStorageLocations",
-    route: "productsStorageLocations",
+    view: "productGroupSubgroup",
+    route: "productGroupSubgroup",
     paramExtra: "",
     defaultFilter: "",
     component: ProductGroupSubgroupComponent,
