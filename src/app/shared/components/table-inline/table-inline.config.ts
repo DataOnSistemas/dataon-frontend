@@ -5,7 +5,7 @@ export interface TableInlineColumn {
   hidden?: boolean;
   field: string;
   header: string;
-  width; string;
+  width: string;
   typeField: TypeFields,
   fieldConfig?: {
     route: string;
