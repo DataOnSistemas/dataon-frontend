@@ -18,7 +18,6 @@ import {InputTextComponent} from "../components/inputs/input-text/input-text.com
 import {LoadingComponent} from "../loading/loading.component";
 import {FloatLabelModule} from "primeng/floatlabel";
 import {TableInlineComponent} from "../components/table-inline/table-inline.component";
-import {DialogComponent} from "../components/dialog/dialog.component";
 
 
 @NgModule({
@@ -33,8 +32,7 @@ import {DialogComponent} from "../components/dialog/dialog.component";
     InputMaskComponent,
     InputNumberComponent,
     ImageUploadComponent,
-    TableInlineComponent,
-    DialogComponent
+    TableInlineComponent
   ],
   exports: [
     CommonModule,
@@ -56,8 +54,7 @@ import {DialogComponent} from "../components/dialog/dialog.component";
     InputMaskComponent,
     InputNumberComponent,
     ImageUploadComponent,
-    TableInlineComponent,
-    DialogComponent
+    TableInlineComponent
   ]
 })
 export class SharedCommonModule { }

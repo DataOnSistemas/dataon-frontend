@@ -1,0 +1,10 @@
+export enum TypeFields {
+  AUTO_COMPLETE,
+  DROPDOWN,
+  INPUT_TEXT,
+  IMAGE_UPLOAD,
+  INPUT_MASK,
+  INPUT_AREA,
+  INPUT_NUMBER,
+  INPUT_DATE
+}

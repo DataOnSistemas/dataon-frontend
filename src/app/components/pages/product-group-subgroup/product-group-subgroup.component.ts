@@ -2,12 +2,12 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {SharedCommonModule} from "../../../shared/common/shared-common.module";
 import {ToastService} from "../../../services/toast/toast.service";
 import {FormGroup} from "@angular/forms";
-import {ProductStorageLocationsConfig} from "../product-storage-locations/product-storage-locations.config";
 import {typeTree} from "../../../shared/util/constants";
 import {FieldsService} from "../../../shared/services/fields/fields.service";
 import {TranslateService} from "../../../shared/services/translate/translate.service";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ProductGroupSubgroupConfig} from "./product-group-subgroup.config";
+import {TableInlineConfig} from "../../../shared/components/table-inline/table-inline.config";
 
 @Component({
   selector: 'app-product-group-subgroup',
@@ -23,6 +23,8 @@ import {ProductGroupSubgroupConfig} from "./product-group-subgroup.config";
 export class ProductGroupSubgroupComponent implements OnInit  {
 
   public formGroup: FormGroup;
+  public formGroupCommision: FormGroup;
+  public tableInlineConfig: TableInlineConfig = new TableInlineConfig();
   protected configObj: ProductGroupSubgroupConfig = new ProductGroupSubgroupConfig();
 
   _visibleDialog: boolean = false;
@@ -37,6 +39,15 @@ export class ProductGroupSubgroupComponent implements OnInit  {
     public readonly config: DynamicDialogConfig,
   ) {
     this.formGroup = this.fieldsService.onCreateFormBuiderDynamic(this.configObj.fields);
+    this.formGroupCommision = this.fieldsService.onCreateFormBuiderDynamic(this.configObj.fieldsCommision);
+    this.onConfigTableInline();
+  }
+
+  //Função para configurar tabela-inline
+  onConfigTableInline(){
+    this.tableInlineConfig.title = "Comissões"
+    this.tableInlineConfig.formGroup = this.formGroupCommision;
+    this.tableInlineConfig.columns = this.configObj.onGetColumnsCommision();
   }
 
   ngOnInit(): void {

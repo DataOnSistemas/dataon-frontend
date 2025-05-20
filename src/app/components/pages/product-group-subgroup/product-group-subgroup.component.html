@@ -48,9 +48,14 @@
       route="costProfitCenter"
       optionLabel="description"
       class="field col-12 md:col-12 c-margin"
-      [label]="translateService.translate('productGroupSubgroup_profitMargin')"
+      [label]="translateService.translate('costProfitCenter')"
       type="text">
     </app-auto-complete>
+    <app-table-inline
+      class="field col-12 md:col-12 c-margin"
+    >
+
+    </app-table-inline>
     <p-button  [label]="translateService.translate('common_action_save')"  (onClick)="_visibleDialog = true"/>
   </div>
 </div>
@@ -58,12 +63,3 @@
   <p-button  [label]="translateService.translate('common_action_save')" (keydown.enter)="onSave()" (onClick)="onSave()"/>
   <p-button  [label]="translateService.translate('common_action_cancel')" (onClick)="onCancel()"/>
 </div>
-<app-dialog
-  [visible]="_visibleDialog"
-  title="Comissionamento">
-
-  <div class="flex justify-end gap-2">
-    <p-button label="Cancel" severity="secondary" (click)="_visibleDialog = false" />
-    <p-button label="Salvar" />
-  </div>
-</app-dialog>

@@ -1,4 +1,6 @@
 import {FormGroup} from "@angular/forms";
+import {TableInlineColumn} from "../../../shared/components/table-inline/table-inline.config";
+import {TypeFields} from "../../../shared/components/tipe-fields";
 
 export class ProductGroupSubgroupConfig{
 
@@ -134,6 +136,63 @@ export class ProductGroupSubgroupConfig{
     }
   ]
 
+  fieldsCommision: any[] = [
+    {
+      "fieldName": "id",
+      "required": true,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "cashCommission",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "installmentCommissionWithDownPayment",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "installmentCommissionWithoutDownPayment",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "userId",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "quoteCommission",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "type",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "bonus",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    },
+    {
+      "fieldName": "bonusType",
+      "required": false,
+      "hidden": false,
+      "type": "string"
+    }
+  ]
+
 
   convertFormGroupToDTO(formGroup: FormGroup, parent: any): any {
     let dto = {
@@ -150,6 +209,77 @@ export class ProductGroupSubgroupConfig{
     }
 
     return dto
+  }
+
+  onGetColumnsCommision(): any[] {
+    return [
+      {
+        hidden: false,
+        field: "id",
+        header: "id",
+        width: "0%",
+        typeField: TypeFields.INPUT_TEXT
+      },
+      {
+        hidden: false,
+        field: "cashCommission",
+        header: "Endereço",
+        width: "10%",
+        typeField: TypeFields.INPUT_TEXT
+      },
+      {
+        hidden: false,
+        field: "installmentCommissionWithDownPayment",
+        header: "Endereço",
+        width: "10%",
+        typeField: TypeFields.INPUT_NUMBER
+      },
+      {
+        hidden: false,
+        field: "installmentCommissionWithoutDownPayment",
+        header: "Endereço",
+        width: "10%",
+        typeField: TypeFields.INPUT_NUMBER
+      },
+      {
+        hidden: false,
+        field: "userId",
+        header: "Vendedor",
+        width: "10%",
+        typeField: TypeFields.AUTO_COMPLETE,
+        fieldConfig: {
+          route: "user"
+        }
+      },
+      {
+        hidden: false,
+        field: "quoteCommission",
+        header: "Vendedor",
+        width: "10%",
+        typeField: TypeFields.INPUT_NUMBER
+      },
+      {
+        hidden: false,
+        field: "type",
+        header: "Vendedor",
+        width: "10%",
+        typeField: TypeFields.DROPDOWN
+      },
+      {
+        hidden: false,
+        field: "bonus",
+        header: "Vendedor",
+        width: "10%",
+        typeField: TypeFields.INPUT_NUMBER
+      },
+      {
+        hidden: false,
+        field: "bonusType",
+        header: "Vendedor",
+        width: "10%",
+        typeField: TypeFields.INPUT_NUMBER
+      }
+    ];
   }
 
 }

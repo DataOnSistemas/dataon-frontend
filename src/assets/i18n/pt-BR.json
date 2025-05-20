@@ -110,5 +110,7 @@
   "product_store_location_specificCode": "Codigo específico",
   "user": "Usuário",
   "user_theme": "Tema",
-  "user_language": "Linguagem"
+  "user_language": "Linguagem",
+  "productGroupSubgroup_loyaltyPercentage": "Programa de fidelidade %",
+  "productGroupSubgroup_profitMargin": "Margem de lucro %"
 }
