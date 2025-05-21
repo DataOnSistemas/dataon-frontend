@@ -9,19 +9,16 @@
     icon="pi pi-plus"/>
 </div>
 <p-table
-  [value]="values"
+  [value]="config.values"
   dataKey="id"
   [tableStyle]="{ 'min-width': '50rem' }">
-  <ng-template #header>
+  <ng-template #header let-columns>
     <tr>
-      <th style="width:50%">
-        ID
+      <th style="width: 10%;text-align: center">
+        Ações
       </th>
-      <th style="width:25%">
-        Name
-      </th>
-      <th style="width:25%">
-        Teste
+      <th [style]="'width:' + col.width " *ngFor="let col of config.columns">
+        {{ col.header }}
       </th>
     </tr>
   </ng-template>

@@ -214,35 +214,35 @@ export class ProductGroupSubgroupConfig{
   onGetColumnsCommision(): any[] {
     return [
       {
-        hidden: false,
+        hidden: true,
         field: "id",
         header: "id",
         width: "0%",
         typeField: TypeFields.INPUT_TEXT
       },
       {
-        hidden: false,
+        hidden: true,
         field: "cashCommission",
         header: "Endereço",
         width: "10%",
         typeField: TypeFields.INPUT_TEXT
       },
       {
-        hidden: false,
+        hidden: true,
         field: "installmentCommissionWithDownPayment",
         header: "Endereço",
         width: "10%",
         typeField: TypeFields.INPUT_NUMBER
       },
       {
-        hidden: false,
+        hidden: true,
         field: "installmentCommissionWithoutDownPayment",
         header: "Endereço",
         width: "10%",
         typeField: TypeFields.INPUT_NUMBER
       },
       {
-        hidden: false,
+        hidden: true,
         field: "userId",
         header: "Vendedor",
         width: "10%",
@@ -252,28 +252,28 @@ export class ProductGroupSubgroupConfig{
         }
       },
       {
-        hidden: false,
+        hidden: true,
         field: "quoteCommission",
         header: "Vendedor",
         width: "10%",
         typeField: TypeFields.INPUT_NUMBER
       },
       {
-        hidden: false,
+        hidden: true,
         field: "type",
         header: "Vendedor",
         width: "10%",
         typeField: TypeFields.DROPDOWN
       },
       {
-        hidden: false,
+        hidden: true,
         field: "bonus",
         header: "Vendedor",
         width: "10%",
         typeField: TypeFields.INPUT_NUMBER
       },
       {
-        hidden: false,
+        hidden: true,
         field: "bonusType",
         header: "Vendedor",
         width: "10%",
